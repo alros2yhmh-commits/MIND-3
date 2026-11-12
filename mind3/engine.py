@@ -59,9 +59,12 @@ class Engine:
             PythonAnalyst(concepts_path, router_path=router_path)
             if os.path.isfile(concepts_path) else None
         )
-        examples_path = os.path.join(project_root, "data", "processed", "python_train_examples.jsonl")
+        processed_dir = os.path.join(project_root, "data", "processed")
+        examples_path = os.path.join(processed_dir, "python_train_examples.jsonl")
+        nodes_path = os.path.join(processed_dir, "knowledge_nodes.jsonl")
+        edges_path = os.path.join(processed_dir, "knowledge_edges.jsonl")
         self.python_task_analyst = (
-            PythonTaskAnalyst(artifacts_dir, examples_path)
+            PythonTaskAnalyst(artifacts_dir, examples_path, nodes_path, edges_path)
             if self.config.get("architecture") == "AKA-PY-1"
             and os.path.isfile(examples_path) else None
         )
