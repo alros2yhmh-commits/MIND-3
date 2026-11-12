@@ -87,8 +87,8 @@ def main():
 
     report = {
         "dataset_version": "intent-data-v2",
-        "training_source": "human_authored_curated_v2_only",
-        "evaluation_source": "human_authored_curated_v2_holdout_only",
+        "training_source": "curated_authored_v2_only",
+        "evaluation_source": "curated_authored_v2_holdout_only",
         "weak_huggingface_labels_used": False,
         "train_examples": len(train_rows),
         "evaluation_examples": len(eval_rows),
