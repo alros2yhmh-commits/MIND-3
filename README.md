@@ -141,3 +141,37 @@ python -m scripts.evaluate_router_v3
 ```
 
 The final test must not be used to tune epochs, learning rate, taxonomy, or data. If test results trigger changes, create a new test set before another final evaluation. The original v2 training script and data remain available for comparison.
+
+
+## MIND-3 AKA Python knowledge experiment
+
+The frozen architecture contract is in [docs/AKA_PYTHON_ARCHITECTURE.md](docs/AKA_PYTHON_ARCHITECTURE.md). This track does not load a pretrained language model or use fine-tuning.
+
+After the prepared local files exist, build the explicit graph and train the first MIND-3 semantic task-family mapper:
+
+```powershell
+python -m scripts.build_python_knowledge
+python -m scripts.train_python_mind3 --target-params 10000 --epochs 20
+```
+
+The builder reads CodeSearchNet-derived training rows, MBPP train references, MBPP validation for development only, and curated Python concepts. It does **not** open MBPP test or prompt files and never executes downloaded code.
+
+The first neural integration experiment trains the repository's reference-ID/transition core from random initialization to classify Python task families. The UI then retrieves a related code example from the predicted family and labels it as a reference pattern. It does **not** synthesize a new program or certify that a retrieved example solves the exact request. The validation metric measures AST-derived task-family classification only, not code correctness.
+
+Launch the UI against this separate artifact directory (the old `artifacts/full` experiment remains untouched):
+
+```powershell
+$env:MIND3_ARTIFACTS_DIR = "artifacts/python_knowledge"
+python server.py
+```
+
+Open http://127.0.0.1:8765. To return to the old model in a fresh PowerShell session, clear the variable with `Remove-Item Env:MIND3_ARTIFACTS_DIR` before starting the server.
+
+For larger parameter-budget experiments, use separate output directories so runs remain reproducible:
+
+```powershell
+python -m scripts.train_python_mind3 --target-params 50000 --epochs 20 --output artifacts/python_knowledge_50k
+python -m scripts.train_python_mind3 --target-params 100000 --epochs 20 --output artifacts/python_knowledge_100k
+```
+
+The actual trainable parameter count is recorded in each run's `training_log.json`; the requested budget is a target, not a guaranteed exact count. MBPP test remains closed until model settings and thresholds are frozen.
