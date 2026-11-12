@@ -22,8 +22,8 @@ def main():
         raise FileNotFoundError("Train the v3 router before evaluating the final test split.")
     with TEST_PATH.open("r", encoding="utf-8") as stream:
         rows = [json.loads(line) for line in stream if line.strip()]
-    if len(rows) != 64:
-        raise ValueError(f"Expected 64 final-test examples, found {len(rows)}")
+    if len(rows) != 80:
+        raise ValueError(f"Expected 80 final-test examples, found {len(rows)}")
     ids, texts = set(), set()
     counts, language_counts = Counter(), Counter()
     for row in rows:
