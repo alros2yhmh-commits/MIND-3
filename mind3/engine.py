@@ -53,7 +53,11 @@ class Engine:
         self.history: list[dict] = []
         project_root = os.path.dirname(os.path.dirname(os.path.abspath(artifacts_dir)))
         concepts_path = os.path.join(project_root, "data", "curated", "python_concepts.jsonl")
-        self.python_analyst = PythonAnalyst(concepts_path) if os.path.isfile(concepts_path) else None
+        router_path = os.path.join(project_root, "artifacts", "analytical", "intent_router.npz")
+        self.python_analyst = (
+            PythonAnalyst(concepts_path, router_path=router_path)
+            if os.path.isfile(concepts_path) else None
+        )
 
     def answer(self, message: str) -> dict:
         lang = detect_lang(message)
