@@ -1,0 +1,27 @@
+[PASS] 'ما اسمي؟'
+    lang=ar unit=name reply=اسمك Hamza.
+    reason=highest verified score 1.000 (model_prob 1.000 x confidence 1.00)
+[PASS] 'How old am I?'
+    lang=en unit=age reply=Your recorded age is 15 (as you provided), but your date of birth 2010-01-01 implies you are 16 today (2026-11-12). These two facts conflict and need your clarification; I won't invent a resolution.
+    reason=highest verified score 1.000 (model_prob 1.000 x confidence 1.00)
+    conflict=dob: stated age 15 vs date of birth 2010-01-01 (implies 16 on 2026-11-12)
+[PASS] 'What is my date of birth?'
+    lang=en unit=dob reply=Your recorded date of birth is 1 January 2010 (2010-01-01).
+    reason=highest verified score 1.000 (model_prob 1.000 x confidence 1.00)
+[PASS] 'ما مستواي في Python؟'
+    lang=ar unit=python_proficiency reply=مستواك في Python هو 50% حسب تقديرك الذاتي، وليس تقييمًا مُتحققًا منه.
+    reason=highest verified score 1.000 (model_prob 1.000 x confidence 1.00)
+[PASS] 'اشرح المتغيرات في Python'
+    lang=ar unit=python_variables reply=المتغيّر في Python هو اسم مرتبط بقيمة، يُنشأ بالإسناد مثل: x = 5. لا تحتاج لتصريح نوعه، ويتغيّر نوعه بتغيّر القيمة.
+    reason=highest verified score 1.000 (model_prob 1.000 x confidence 1.00)
+[PASS] 'Explain decorators in Python'
+    lang=en unit=unknown reply=I don't have this information in my trained knowledge. I can search for it if you explicitly ask.
+    reason=margin rule: best knowledge prob 0.000 < 0.3 -> admit missing knowledge
+[PASS] 'Hello, how are you?'
+    lang=en unit=greeting reply=Hello! I'm MIND-3, a small experimental knowledge model. I can answer from my trained knowledge, and search when you explicitly ask.
+    reason=highest verified score 1.000 (model_prob 1.000 x confidence 1.00)
+[PASS] 'ما جنسي؟'
+    lang=ar unit=gender reply=لا أملك معلومة مؤكدة عن جنسك، ولن أستنتجه. يحتاج إلى تأكيد صريح منك.
+    reason=highest verified score 1.000 (model_prob 1.000 x confidence 1.00)
+
+RESULT: ALL PASS

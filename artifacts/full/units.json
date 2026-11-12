@@ -1,0 +1,248 @@
+[
+ {
+  "id": "age",
+  "claim": "The user's stated age is 15 years (user-provided). This conflicts with the date of birth 2010-01-01, which implies 16 years as of 2026-11-12.",
+  "category": "Personal Information",
+  "confidence": 1.0,
+  "source": "Explicit user-provided information",
+  "verification": "User-provided; conflict flagged, not resolved",
+  "answer_ar": "عمرك المسجّل 15 سنة حسب ما زوّدتني، لكن تاريخ ميلادك 2010-01-01 يعني أن عمرك 16 سنة اليوم (2026-11-12). يوجد تعارض بين المعلومتين بحاجة إلى توضيح منك، ولن أخترع حلًا.",
+  "answer_en": "Your recorded age is 15 (as you provided), but your date of birth 2010-01-01 implies you are 16 today (2026-11-12). These two facts conflict and need your clarification; I won't invent a resolution.",
+  "questions": [
+   "كم عمري؟",
+   "ما هو عمري؟",
+   "How old am I?",
+   "What is my age?"
+  ],
+  "conflict": "dob: stated age 15 vs date of birth 2010-01-01 (implies 16 on 2026-11-12)",
+  "note": ""
+ },
+ {
+  "id": "dob",
+  "claim": "The user's date of birth is 2010-01-01 (1 January 2010).",
+  "category": "Personal Information",
+  "confidence": 1.0,
+  "source": "Explicit user-provided information",
+  "verification": "User-provided",
+  "answer_ar": "تاريخ ميلادك المسجّل هو 1 يناير 2010 (2010-01-01).",
+  "answer_en": "Your recorded date of birth is 1 January 2010 (2010-01-01).",
+  "questions": [
+   "ما تاريخ ميلادي؟",
+   "متى ولدت؟",
+   "ما هو تاريخ ميلادي؟",
+   "What is my date of birth?",
+   "When was I born?"
+  ],
+  "conflict": "",
+  "note": ""
+ },
+ {
+  "id": "english",
+  "claim": "The user's English proficiency has not been assessed yet; it must be evaluated through an English conversation test.",
+  "category": "Language",
+  "confidence": 1.0,
+  "source": "Project requirement (not yet assessed)",
+  "verification": "Pending English conversation test",
+  "answer_ar": "لم يُقيَّم مستواك في الإنجليزية بعد؛ يحتاج إلى اختبار محادثة بالإنجليزية.",
+  "answer_en": "Your English proficiency hasn't been assessed yet; it needs an English conversation test.",
+  "questions": [
+   "ما مستواي في الإنجليزية؟",
+   "ما هو مستواي في الانجليزي؟",
+   "What is my English level?",
+   "How is my English?"
+  ],
+  "conflict": "",
+  "note": ""
+ },
+ {
+  "id": "gender",
+  "claim": "The user's gender is unknown and must not be inferred; it requires explicit confirmation.",
+  "category": "Personal Information",
+  "confidence": 1.0,
+  "source": "No confirmed information provided",
+  "verification": "Unknown until explicitly confirmed; do not infer",
+  "answer_ar": "لا أملك معلومة مؤكدة عن جنسك، ولن أستنتجه. يحتاج إلى تأكيد صريح منك.",
+  "answer_en": "I don't have confirmed information about your gender, and I won't infer it. It requires your explicit confirmation.",
+  "questions": [
+   "ما جنسي؟",
+   "هل أنا ذكر أم أنثى؟",
+   "ما هو جنسي؟",
+   "What is my gender?",
+   "Am I male or female?"
+  ],
+  "conflict": "",
+  "note": ""
+ },
+ {
+  "id": "greeting",
+  "claim": "The user is greeting the assistant or opening a conversation.",
+  "category": "Conversation",
+  "confidence": 1.0,
+  "source": "Conversational pattern (not personal information)",
+  "verification": "System greeting pattern",
+  "answer_ar": "مرحبًا! أنا MIND-3، نموذج معرفة تجريبي صغير. أستطيع الإجابة عن معرفتي المدرّبة، والبحث عند طلبك صراحةً.",
+  "answer_en": "Hello! I'm MIND-3, a small experimental knowledge model. I can answer from my trained knowledge, and search when you explicitly ask.",
+  "questions": [
+   "مرحبا",
+   "أهلا",
+   "السلام عليكم",
+   "هاي",
+   "Hello",
+   "Hi",
+   "Hey",
+   "Hello, how are you?",
+   "How are you?",
+   "Hi there"
+  ],
+  "conflict": "",
+  "note": ""
+ },
+ {
+  "id": "name",
+  "claim": "The user's name is Hamza.",
+  "category": "Personal Information",
+  "confidence": 1.0,
+  "source": "Explicit user-provided information",
+  "verification": "User-confirmed",
+  "answer_ar": "اسمك Hamza.",
+  "answer_en": "Your name is Hamza.",
+  "questions": [
+   "ما اسمي؟",
+   "ما هو اسمي؟",
+   "شو اسمي؟",
+   "What is my name?",
+   "What's my name?",
+   "Tell me my name."
+  ],
+  "conflict": "",
+  "note": ""
+ },
+ {
+  "id": "python_conditions",
+  "claim": "Python conditions use if/elif/else to run different blocks depending on boolean expressions.",
+  "category": "Programming Knowledge",
+  "confidence": 1.0,
+  "source": "General Python knowledge, user-confirmed concept set (2026-11-12)",
+  "verification": "User-confirmed for training",
+  "answer_ar": "الشروط في Python تستخدم if/elif/else لتنفيذ كتل مختلفة حسب تعابير منطقية، مثل: if x > 0: ... else: ....",
+  "answer_en": "Python conditions use if/elif/else to run different blocks based on boolean expressions, e.g. if x > 0: ... else: ....",
+  "questions": [
+   "اشرح الشروط في Python",
+   "ما هي الشروط في بايثون؟",
+   "ما هي الشروط في Python؟",
+   "Explain conditions in Python",
+   "What is an if statement in Python?"
+  ],
+  "conflict": "",
+  "note": ""
+ },
+ {
+  "id": "python_functions",
+  "claim": "A Python function is a reusable block defined with def, takes parameters and returns a value with return.",
+  "category": "Programming Knowledge",
+  "confidence": 1.0,
+  "source": "General Python knowledge, user-confirmed concept set (2026-11-12)",
+  "verification": "User-confirmed for training",
+  "answer_ar": "الدالة في Python كتلة قابلة لإعادة الاستخدام تُعرّف بـ def، تأخذ معاملات وتعيد قيمة بـ return، مثل: def add(a, b): return a + b.",
+  "answer_en": "A Python function is a reusable block defined with def, takes parameters and returns a value with return, e.g. def add(a, b): return a + b.",
+  "questions": [
+   "اشرح الدوال في Python",
+   "ما هي الدالة في بايثون؟",
+   "ما هي الدوال في Python؟",
+   "Explain functions in Python",
+   "What is a function in Python?"
+  ],
+  "conflict": "",
+  "note": ""
+ },
+ {
+  "id": "python_lists",
+  "claim": "A Python list is an ordered, mutable collection written with square brackets, e.g. nums = [1, 2, 3].",
+  "category": "Programming Knowledge",
+  "confidence": 1.0,
+  "source": "General Python knowledge, user-confirmed concept set (2026-11-12)",
+  "verification": "User-confirmed for training",
+  "answer_ar": "القائمة في Python مجموعة مرتّبة قابلة للتعديل تُكتب بأقواس مربعة مثل: nums = [1, 2, 3]. تدعم الفهرسة والتقطيع والإضافة والحذف.",
+  "answer_en": "A Python list is an ordered, mutable collection written with square brackets, e.g. nums = [1, 2, 3]. It supports indexing, slicing, appending and removing.",
+  "questions": [
+   "اشرح القوائم في Python",
+   "ما هي القائمة في بايثون؟",
+   "ما هي القوائم في Python؟",
+   "Explain lists in Python",
+   "What is a list in Python?"
+  ],
+  "conflict": "",
+  "note": ""
+ },
+ {
+  "id": "python_loops",
+  "claim": "Python loops repeat a block of code: for iterates over a sequence, while repeats while a condition is true.",
+  "category": "Programming Knowledge",
+  "confidence": 1.0,
+  "source": "General Python knowledge, user-confirmed concept set (2026-11-12)",
+  "verification": "User-confirmed for training",
+  "answer_ar": "الحلقات في Python تكرّر كتلة شيفرة: for تمرّ على عناصر تسلسل مثل for i in range(3)، وwhile تكرّر ما دام الشرط صحيحًا. تُستخدم لأتمتة التكرار.",
+  "answer_en": "Python loops repeat a block: for iterates over a sequence (for i in range(3)), while repeats while a condition holds. They automate repetition.",
+  "questions": [
+   "اشرح الحلقات في Python",
+   "ما هي الحلقات في بايثون؟",
+   "ما هي الحلقات في Python؟",
+   "Explain loops in Python",
+   "What is a loop in Python?"
+  ],
+  "conflict": "",
+  "note": ""
+ },
+ {
+  "id": "python_proficiency",
+  "claim": "The user's Python proficiency is 50%, a self-estimated skill level (not a verified assessment).",
+  "category": "Programming Knowledge",
+  "confidence": 1.0,
+  "source": "Explicit user-provided estimate",
+  "verification": "User-provided self-assessment",
+  "answer_ar": "مستواك في Python هو 50% حسب تقديرك الذاتي، وليس تقييمًا مُتحققًا منه.",
+  "answer_en": "Your Python proficiency is 50% based on your own self-estimate, not a verified assessment.",
+  "questions": [
+   "ما مستواي في Python؟",
+   "كم مستواي في بايثون؟",
+   "مستواي في Python",
+   "What is my Python proficiency?",
+   "How good am I at Python?",
+   "What is my Python level?"
+  ],
+  "conflict": "",
+  "note": "50% is the user's estimated skill level. Confidence 1.0 refers to the fact that the user provided this estimate, not to the accuracy of the skill measurement. These are distinct: truth-confidence vs source-reliability vs skill-level."
+ },
+ {
+  "id": "python_variables",
+  "claim": "In Python, a variable is a named reference to a value, created by assignment, e.g. x = 5.",
+  "category": "Programming Knowledge",
+  "confidence": 1.0,
+  "source": "General Python knowledge, user-confirmed concept set (2026-11-12)",
+  "verification": "User-confirmed for training",
+  "answer_ar": "المتغيّر في Python هو اسم مرتبط بقيمة، يُنشأ بالإسناد مثل: x = 5. لا تحتاج لتصريح نوعه، ويتغيّر نوعه بتغيّر القيمة.",
+  "answer_en": "A variable in Python is a name bound to a value, created by assignment like x = 5. No type declaration is needed; the type follows the value.",
+  "questions": [
+   "اشرح المتغيرات في Python",
+   "ما هو المتغير في بايثون؟",
+   "ما هي المتغيرات في Python؟",
+   "Explain variables in Python",
+   "What is a variable in Python?"
+  ],
+  "conflict": "",
+  "note": ""
+ },
+ {
+  "id": "unknown",
+  "claim": "The requested information is not present in the trained knowledge.",
+  "category": "Meta",
+  "confidence": 1.0,
+  "source": "System meta-unit",
+  "verification": "Admit missing knowledge; offer explicit search",
+  "answer_ar": "لا أملك هذه المعلومة ضمن معرفتي المدرّبة. يمكنني البحث عنها إذا طلبت ذلك صراحةً.",
+  "answer_en": "I don't have this information in my trained knowledge. I can search for it if you explicitly ask.",
+  "questions": [],
+  "conflict": "",
+  "note": ""
+ }
+]

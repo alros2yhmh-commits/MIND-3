@@ -1,0 +1,19 @@
+[PASS] round-trip: 'ما اسمي؟'
+[PASS] round-trip: 'What is my name?'
+[PASS] round-trip: 'مستواي في Python 50%'
+[PASS] round-trip: 'Hello, world! 123'
+[PASS] round-trip: 'اشرح الحلقات في Python'
+[PASS] round-trip: '  spaces\tand\nnewlines  '
+[PASS] round-trip: 'عمري 15 وتاريخ ميلادي 2010-01-01'
+[PASS] no-collision bijection (vocab=50)
+[PASS] arabic/english/space/punct distinct IDs: {'ع': 46, 'W': 8, ' ': 4, '!': 33, '؟': 7, '5': 24}
+[PASS] unseen char -> UNK ([1])
+
+--- Representation comparison (measured, not assumed) ---
+registry mapping memory : 8248 bytes
+traditional vocab memory: 4568 bytes
+encoded-sample memory   : reference=3864B  traditional=6588B
+encode time / batch     : reference=8.3us  traditional=3.3us
+vocab size              : 50 symbols
+
+RESULT: ALL PASS

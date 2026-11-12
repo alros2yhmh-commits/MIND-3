@@ -1,0 +1,4 @@
+H3 controlled experiment (identical questions, different confidence):
+  confidence weighting ON  -> chooses: high_conf
+  confidence weighting OFF -> chooses: high_conf
+  H3 shows measurable benefit: False

@@ -1,0 +1,13 @@
+[PASS] multi-path beam keeps >=2 candidates
+[PASS] context narrows to 'name'
+[PASS] selection reason logged
+[PASS] paths carry separate prob & confidence
+[PASS] context 'مستواي في Python' narrows to proficiency
+[PASS] confidence down-weights low-confidence path
+[PASS] high-confidence path can win despite lower prob
+[PASS] revival re-introduces pruned path
+[PASS] revived valid path selected
+[PASS] margin rule -> admit unknown
+[PASS] verify=False still selects highest prob
+
+RESULT: ALL PASS

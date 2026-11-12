@@ -1,0 +1,17 @@
+# Negative training questions → the "unknown" unit.
+# These teach the model to admit missing knowledge instead of inventing facts.
+# One question per line; lines starting with # are ignored.
+اشرح الديكوريتور في Python
+Explain decorators in Python
+ما هو الـ recursion في Python؟
+Explain recursion in Python
+اشرح البرمجة كائنية التوجه في Python
+Explain OOP in Python
+ما لون سيارتي؟
+What color is my car?
+أين أسكن؟
+Where do I live?
+ما اسم قطتي؟
+What is my cat's name?
+كم راتبي؟
+What is my salary?

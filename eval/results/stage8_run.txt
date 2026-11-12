@@ -1,0 +1,82 @@
+
+=== full === acc=0.9286 unsupported=0.1667 lat=0.12ms ram=44.5MB
+  [PASS] name_en: unit=name
+  [PASS] name_ar: unit=name
+  [PASS] dob_en: unit=dob
+  [PASS] age_conflict: unit=age
+  [PASS] proficiency: unit=python_proficiency
+  [PASS] concept_trained: unit=python_variables
+  [PASS] concept_untrained: unit=unknown
+  [PASS] english_conv: unit=greeting
+  [PASS] gender: unit=gender
+  [PASS] hallucination: unit=unknown
+  [PASS] ood_gibberish: unit=unknown
+  [FAIL] ood_bare: unit=python_proficiency
+  [PASS] ood_partial_ar: unit=unknown
+  [PASS] search: unit=None
+
+=== no_reference === acc=0.9286 unsupported=0.1667 lat=0.09ms ram=44.6MB
+  [PASS] name_en: unit=name
+  [PASS] name_ar: unit=name
+  [PASS] dob_en: unit=dob
+  [PASS] age_conflict: unit=age
+  [PASS] proficiency: unit=python_proficiency
+  [PASS] concept_trained: unit=python_variables
+  [PASS] concept_untrained: unit=unknown
+  [PASS] english_conv: unit=greeting
+  [PASS] gender: unit=gender
+  [PASS] hallucination: unit=unknown
+  [PASS] ood_gibberish: unit=unknown
+  [FAIL] ood_bare: unit=python_proficiency
+  [PASS] ood_partial_ar: unit=unknown
+  [PASS] search: unit=None
+
+=== no_transitions === acc=0.8571 unsupported=0.3333 lat=0.05ms ram=46.0MB
+  [PASS] name_en: unit=name
+  [PASS] name_ar: unit=name
+  [PASS] dob_en: unit=dob
+  [PASS] age_conflict: unit=age
+  [PASS] proficiency: unit=python_proficiency
+  [PASS] concept_trained: unit=python_variables
+  [PASS] concept_untrained: unit=unknown
+  [PASS] english_conv: unit=greeting
+  [PASS] gender: unit=gender
+  [PASS] hallucination: unit=unknown
+  [FAIL] ood_gibberish: unit=age
+  [FAIL] ood_bare: unit=python_proficiency
+  [PASS] ood_partial_ar: unit=unknown
+  [PASS] search: unit=None
+
+=== no_confidence === acc=0.9286 unsupported=0.1667 lat=0.11ms ram=46.4MB
+  [PASS] name_en: unit=name
+  [PASS] name_ar: unit=name
+  [PASS] dob_en: unit=dob
+  [PASS] age_conflict: unit=age
+  [PASS] proficiency: unit=python_proficiency
+  [PASS] concept_trained: unit=python_variables
+  [PASS] concept_untrained: unit=unknown
+  [PASS] english_conv: unit=greeting
+  [PASS] gender: unit=gender
+  [PASS] hallucination: unit=unknown
+  [PASS] ood_gibberish: unit=unknown
+  [FAIL] ood_bare: unit=python_proficiency
+  [PASS] ood_partial_ar: unit=unknown
+  [PASS] search: unit=None
+
+=== baseline === acc=0.8571 unsupported=0.3333 lat=0.03ms ram=46.4MB
+  [PASS] name_en: unit=name
+  [PASS] name_ar: unit=name
+  [PASS] dob_en: unit=dob
+  [PASS] age_conflict: unit=age
+  [PASS] proficiency: unit=python_proficiency
+  [PASS] concept_trained: unit=python_variables
+  [PASS] concept_untrained: unit=unknown
+  [PASS] english_conv: unit=greeting
+  [PASS] gender: unit=gender
+  [PASS] hallucination: unit=unknown
+  [FAIL] ood_gibberish: unit=python_conditions
+  [FAIL] ood_bare: unit=python_proficiency
+  [PASS] ood_partial_ar: unit=unknown
+  [PASS] search: unit=None
+
+Wrote eval/results/eval_all.json and stage8_eval.md

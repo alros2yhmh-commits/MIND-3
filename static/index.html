@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MIND-3 — Local Knowledge Model</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">M3</span>
+        <div>
+          <h1 id="model-name">MIND-3</h1>
+          <p id="model-meta">…</p>
+        </div>
+      </div>
+      <button id="clear-btn" class="ghost" title="مسح المحادثة دون حذف التدريب">مسح المحادثة</button>
+    </header>
+
+    <main id="chat" class="chat" aria-live="polite">
+      <div class="welcome">
+        <p>نموذج معرفة تجريبي محلي. اسأل عن معرفته المدرّبة، أو اكتب <code>ابحث عن …</code> للبحث عند الطلب.</p>
+        <p class="en">A local experimental knowledge model. Ask about its trained knowledge, or type <code>search for …</code> to search on demand.</p>
+      </div>
+    </main>
+
+    <div id="status" class="status" hidden></div>
+
+    <footer class="composer">
+      <input id="input" type="text" dir="auto" autocomplete="off"
+             placeholder="اكتب رسالتك… / Type your message…" />
+      <button id="send-btn">إرسال</button>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

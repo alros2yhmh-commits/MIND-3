@@ -1,0 +1,14 @@
+[PASS] EN search returns real sources
+[PASS] sources have title+url
+    EN summary: Fresh search results for 'Python programming language' (not from the model's trained knowledge):
+    - [Wikipedia] Python (programming language) | https://en.wikipedia.org/?curid=23862
+    - [Wikipedia] Outline of the Python programming language | https://en.wikipedia.org/?curid=81118035
+    - [Wikipedia] Mojo (programming language) | https://en.wikipedia.org/?curid=73729965
+[PASS] AR search returns real sources
+    - [Wikipedia] بايثون (لغة برمجة) | https://ar.wikipedia.org/?curid=12669
+    - [Wikipedia] سي بايثون | https://ar.wikipedia.org/?curid=630226
+[PASS] explicit AR request routes to search
+[PASS] explicit EN request routes to search
+[PASS] normal question does NOT auto-search
+
+RESULT: ALL PASS
