@@ -22,7 +22,7 @@ Flytech/python-codes-25k was inspected but excluded from the default pipeline be
 
 Important:
 - Dataset cards, licenses, and visible sample rows were inspected, but the full corpora were not manually audited row by row.
-- CodeSearchNet-derived instruction pairs include template/NLP-generated text.
+- CodeSearchNet-derived instruction pairs include template/NLP-generated text and are excluded from intent-router supervision.
 - The Flytech candidate is excluded from the default pipeline after inspecting visible malformed examples.
 - AST parsing proves syntax validity only. The preparation script never executes downloaded code.
 - MBPP uses its published Parquet splits (374 train, 90 validation, 500 test, 10 prompt); the preparation script checks split IDs for overlap. Test rows remain held out, and prompt rows are stored separately.
@@ -65,13 +65,19 @@ python -m scripts.prepare_hf_data
 
 The full default cap is 20,000 accepted rows per instructional source. Hugging Face downloads can be large; the CodeSearchNet-derived dataset is hundreds of megabytes. Keep generated data/processed/ local.
 
-## Train the 49,928-parameter router
+## Intent data v2 and router training
+
+The intent router is supervised only by the manually authored bilingual files `data/curated/intent_train.jsonl` and `data/curated/intent_eval.jsonl`. Each of the eight intents has equal representation in both splits, with Arabic and English examples. The evaluation prompts are distinct from training prompts and are never used for gradient updates.
+
+The CodeSearchNet-derived instruction corpus remains available for code-task research, but it receives no heuristic intent labels and is excluded from router supervision. MBPP published splits remain separate; its test split is not used for router training.
+
+Run:
 
 ```powershell
 python -m scripts.train_router
 ```
 
-The router is trained using weak intent labels inferred from prompt wording, plus curated Arabic/English seed examples. Its softmax score is uncalibrated and is not a probability that an answer is correct. Its training accuracy is not a measure of Python knowledge or reasoning ability. Inspect artifacts/analytical/intent_router_report.json.
+The script validates labels, duplicate prompts, language coverage, exact class balance, and train/evaluation text separation before training. It reports overall and per-intent holdout accuracy plus a confusion matrix. The initial holdout is small and hand-authored: treat it as a diagnostic, not a statistically strong benchmark. The router's softmax score is uncalibrated and the classifier does not measure Python knowledge or reasoning.
 
 ## Tests
 
