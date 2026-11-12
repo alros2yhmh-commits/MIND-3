@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import random
+from collections import defaultdict
 
 from mind3.intent_router import IntentRouter
 
@@ -28,8 +30,27 @@ def main():
     examples.extend((r["text"], r["intent"]) for r in read_jsonl(SEEDS))
     if not examples:
         raise SystemExit("No training data. Run: python -m scripts.prepare_hf_data")
+
+    # Balance weakly labelled HF rows so the majority fallback class does not
+    # dominate the small router. Split before training for a real held-out check.
+    buckets = defaultdict(list)
+    for item in examples:
+        buckets[item[1]].append(item)
+    rng = random.Random(31)
+    balanced = []
+    for label, items in sorted(buckets.items()):
+        rng.shuffle(items)
+        balanced.extend(items[:1500])
+    rng.shuffle(balanced)
+    cut = max(1, int(len(balanced) * 0.8))
+    train_rows, validation_rows = balanced[:cut], balanced[cut:]
+
     router = IntentRouter()
-    stats = router.train(examples)
+    stats = router.train(train_rows)
+    correct = sum(router.predict(text)["intent"] == label
+                  for text, label in validation_rows)
+    stats["validation_examples"] = len(validation_rows)
+    stats["validation_accuracy"] = correct / len(validation_rows) if validation_rows else None
     ARTIFACTS.mkdir(parents=True, exist_ok=True)
     router.save(str(ARTIFACTS / "intent_router.npz"))
     (ARTIFACTS / "intent_router_report.json").write_text(
