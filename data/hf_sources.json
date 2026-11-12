@@ -4,7 +4,7 @@
     "raw_datasets_committed": false,
     "why": "Keep the Git repository small; download from the Hub on the user's machine and record source metadata.",
     "quality_rule": "Dataset license does not prove semantic correctness. Dataset previews were inspected, but full corpora were not manually audited row by row. AST parsing checks syntax only; downloaded code is never executed.",
-    "mbpp_split": "task IDs 601-974 training reference pool; 511-600 validation; 11-510 test; 1-10 reserved."
+    "mbpp_split": "Use huggy-1/mbpp config full published Parquet splits: train=374, validation=90, test=500, prompt=10. Split IDs are checked for overlap; prompt is stored separately."
   },
   "sources": [
     {
@@ -17,13 +17,13 @@
       "use": "Capped training source after deduplication and syntax filtering."
     },
     {
-      "id": "Muennighoff/mbpp",
+      "id": "huggy-1/mbpp",
       "role": "held_out_python_benchmark",
       "license": "CC-BY-4.0",
       "language": "English",
       "approx_rows": 974,
-      "quality": "Crowdsourced tasks with reference solutions and tests; only a subset is hand-verified.",
-      "use": "Split by official task-id protocol; test rows never enter training."
+      "quality": "Parquet mirror of the original crowdsourced MBPP benchmark; published full config has separate train/validation/test/prompt splits. Reference solutions and tests are not independently proven for every row.",
+      "use": "Load the published splits directly; keep test held out and prompt separate. Split IDs are checked for overlap."
     }
   ],
   "arabic_policy": {
