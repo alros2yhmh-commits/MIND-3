@@ -12,7 +12,9 @@ from mind3.engine import Engine
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC = os.path.join(ROOT, "static")
-ARTIFACTS = os.path.join(ROOT, "artifacts", "full")
+ARTIFACTS = os.environ.get(
+    "MIND3_ARTIFACTS_DIR", os.path.join(ROOT, "artifacts", "full")
+)
 engine = Engine(ARTIFACTS)
 
 MIME = {
