@@ -1,0 +1,32 @@
+{"id":"seed-001","text":"اشرح لي ما هو المتغير في Python","intent":"explain_concept","language":"ar","supervision":"curated_seed"}
+{"id":"seed-002","text":"What is a Python list?","intent":"explain_concept","language":"en","supervision":"curated_seed"}
+{"id":"seed-003","text":"Explain decorators with a simple example","intent":"explain_concept","language":"en","supervision":"curated_seed"}
+{"id":"seed-004","text":"ما معنى الوراثة في البرمجة؟","intent":"explain_concept","language":"ar","supervision":"curated_seed"}
+{"id":"seed-005","text":"Explain the difference between a tuple and a list","intent":"compare_concepts","language":"en","supervision":"curated_seed"}
+{"id":"seed-006","text":"قارن بين list و tuple","intent":"compare_concepts","language":"ar","supervision":"curated_seed"}
+{"id":"seed-007","text":"What is the output of this Python code?","intent":"trace_code","language":"en","supervision":"curated_seed"}
+{"id":"seed-008","text":"ما ناتج تنفيذ هذا الكود؟","intent":"trace_code","language":"ar","supervision":"curated_seed"}
+{"id":"seed-009","text":"Write a function that adds two numbers","intent":"write_function","language":"en","supervision":"curated_seed"}
+{"id":"seed-010","text":"اكتب دالة تجمع رقمين","intent":"write_function","language":"ar","supervision":"curated_seed"}
+{"id":"seed-011","text":"Fix this Python syntax error","intent":"debug_code","language":"en","supervision":"curated_seed"}
+{"id":"seed-012","text":"صحح الخطأ في الكود التالي","intent":"debug_code","language":"ar","supervision":"curated_seed"}
+{"id":"seed-013","text":"Explain this code in Arabic","intent":"translate_explain","language":"en","supervision":"curated_seed"}
+{"id":"seed-014","text":"اشرح الكود ده بالعربي","intent":"translate_explain","language":"ar","supervision":"curated_seed"}
+{"id":"seed-015","text":"Calculate the result of 5 plus 7","intent":"calculate","language":"en","supervision":"curated_seed"}
+{"id":"seed-016","text":"احسب ناتج 12 في 3","intent":"calculate","language":"ar","supervision":"curated_seed"}
+{"id":"seed-017","text":"How do Python dictionaries work?","intent":"explain_concept","language":"en","supervision":"curated_seed"}
+{"id":"seed-018","text":"ما الفرق بين == و is؟","intent":"compare_concepts","language":"ar","supervision":"curated_seed"}
+{"id":"seed-019","text":"Create a function to reverse a string","intent":"write_function","language":"en","supervision":"curated_seed"}
+{"id":"seed-020","text":"Why does this code raise ValueError?","intent":"debug_code","language":"en","supervision":"curated_seed"}
+{"id":"seed-021","text":"Trace the loop and tell me its final value","intent":"trace_code","language":"en","supervision":"curated_seed"}
+{"id":"seed-022","text":"ترجم شرح الدالة إلى العربية","intent":"translate_explain","language":"ar","supervision":"curated_seed"}
+{"id":"seed-023","text":"How many times does this loop run?","intent":"calculate","language":"en","supervision":"curated_seed"}
+{"id":"seed-024","text":"Tell me about Python programming","intent":"general_python","language":"en","supervision":"curated_seed"}
+{"id":"seed-025","text":"عايز أتعلم Python من البداية","intent":"general_python","language":"ar","supervision":"curated_seed"}
+{"id":"seed-026","text":"What does the return keyword do?","intent":"explain_concept","language":"en","supervision":"curated_seed"}
+{"id":"seed-027","text":"Compare for and while loops","intent":"compare_concepts","language":"en","supervision":"curated_seed"}
+{"id":"seed-028","text":"اكتب مثالًا على list comprehension","intent":"write_function","language":"ar","supervision":"curated_seed"}
+{"id":"seed-029","text":"Find the bug in my function","intent":"debug_code","language":"en","supervision":"curated_seed"}
+{"id":"seed-030","text":"اشرح ناتج تنفيذ الحلقة","intent":"trace_code","language":"ar","supervision":"curated_seed"}
+{"id":"seed-031","text":"How can I say this Python explanation in Arabic?","intent":"translate_explain","language":"en","supervision":"curated_seed"}
+{"id":"seed-032","text":"احسب عدد العناصر في القائمة","intent":"calculate","language":"ar","supervision":"curated_seed"}

@@ -1,9 +1,8 @@
 """H3 — Confidence-Weighted Markdown Training pipeline.
 
-read MD -> parse claims -> link source -> confidence -> training examples
--> actual training (Adam, NumPy) -> save model + registry + units + config + log.
-
-Confidence is never raised by repetition; training does not modify the records.
+Markdown records become labeled examples; confidence weights the training loss.
+The reference-ID encoder is position-aware, so its embedding gradients must be
+mapped back through the inverse position rotation.
 """
 from __future__ import annotations
 
@@ -73,9 +72,14 @@ def train_model(model, examples, epochs=800, lr=0.05, log_every=100):
         if model.use_reference_ids:
             dC = dlog @ model.W.T
             gE = np.zeros_like(model.E)
-            for i, t in enumerate(texts):
-                ids = model.registry.encode(t) or [0]
-                np.add.at(gE, ids, dC[i] / len(ids))
+            for i, text in enumerate(texts):
+                ids = model.registry.encode(text) or [0]
+                scale = 1.0 / len(ids)
+                for position, token_id in enumerate(ids):
+                    shift = position % model.dim
+                    # features() rolls the embedding forward; backpropagate with
+                    # the inverse roll to reach the original embedding coordinates.
+                    np.add.at(gE, token_id, np.roll(dC[i], -shift) * scale)
             grads.append(gE)
         for j, (p, g) in enumerate(zip(params, grads)):
             m[j] = b1 * m[j] + (1 - b1) * g
@@ -107,7 +111,8 @@ def train_variant(name, out_dir, epochs=800, lr=0.05, dim=48, seed=0):
         json.dump([asdict(u) for u in units], f, ensure_ascii=False, indent=1)
     config = {"model_name": MODEL_NAME, "version": __version__, "experiment": EXPERIMENT,
               "variant": name, "dim": dim, "seed": seed, "margin": 0.30, "beam_k": 4,
-              "support_threshold": 0.5, "negative_count": len(negatives), **flags}
+              "support_threshold": 0.5, "negative_count": len(negatives),
+              "encoder": "position-rotated-reference-embeddings-v2", **flags}
     with open(os.path.join(out_dir, "config.json"), "w", encoding="utf-8") as f:
         json.dump(config, f, ensure_ascii=False, indent=1)
     with open(os.path.join(out_dir, "training_log.json"), "w", encoding="utf-8") as f:

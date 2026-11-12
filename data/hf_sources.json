@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "raw_datasets_committed": false,
+    "why": "Keep the Git repository small; download from the Hub on the user's machine and record source metadata.",
+    "quality_rule": "Dataset license does not prove semantic correctness. Dataset previews were inspected, but full corpora were not manually audited row by row. AST parsing checks syntax only; downloaded code is never executed.",
+    "mbpp_split": "task IDs 601-974 training reference pool; 511-600 validation; 11-510 test; 1-10 reserved."
+  },
+  "sources": [
+    {
+      "id": "Nan-Do/instructional_code-search-net-python",
+      "role": "python_instruction_pairs",
+      "license": "Apache-2.0",
+      "language": "English",
+      "approx_rows": 419000,
+      "quality": "Template/NLP-derived instructions from CodeSearchNet; useful for coverage, not authoritative facts.",
+      "use": "Capped training source after deduplication and syntax filtering."
+    },
+    {
+      "id": "Muennighoff/mbpp",
+      "role": "held_out_python_benchmark",
+      "license": "CC-BY-4.0",
+      "language": "English",
+      "approx_rows": 974,
+      "quality": "Crowdsourced tasks with reference solutions and tests; only a subset is hand-verified.",
+      "use": "Split by official task-id protocol; test rows never enter training."
+    }
+  ],
+  "arabic_policy": {
+    "primary": "Bilingual Python concept records in data/curated are linked to official Python documentation; the reference link is not a substitute for independent verification of every claim.",
+    "external_general_arabic_corpora": "Not mixed into Python factual training by default; general translation data cannot verify Python semantics.",
+    "excluded": "Non-commercial or unclear-license Arabic corpora are excluded from the default training pipeline."
+  },
+  "excluded_sources": [
+    {
+      "id": "flytech/python-codes-25k",
+      "license": "MIT",
+      "reason": "The live dataset preview exposed malformed Python quoting/syntax in several visible rows and inconsistent row-count descriptions across card and viewer. Excluded from default training until a separate sample audit and repair policy exist."
+    }
+  ]
+}

@@ -19,8 +19,6 @@ def main() -> int:
         ("How old am I?", "age", "en", "conflict"),
         ("What is my date of birth?", "dob", "en", "2010"),
         ("ما مستواي في Python؟", "python_proficiency", "ar", "50%"),
-        ("اشرح المتغيرات في Python", "python_variables", "ar", "المتغيّر"),
-        ("Explain decorators in Python", "unknown", "en", "trained knowledge"),
         ("Hello, how are you?", "greeting", "en", "MIND-3"),
         ("ما جنسي؟", "gender", "ar", "لن أستنتجه"),
     ]
@@ -37,6 +35,18 @@ def main() -> int:
             if d["conflict"]:
                 print(f"    conflict={d['conflict']}")
 
+    analytical_cases = [
+        ("What is a Python variable?", "en", "assignment statement"),
+        ("اشرح المتغيرات في Python", "ar", "اسم المتغير"),
+        ("Explain decorators in Python", "en", "decorator"),
+    ]
+    for query, expected_lang, expected_text in analytical_cases:
+        analytical = eng.answer(query)
+        ok = (analytical.get("mode") == "analytical"
+              and analytical.get("lang") == expected_lang
+              and expected_text.lower() in analytical.get("reply", "").lower())
+        failures += 0 if ok else 1
+        print(f"[{'PASS' if ok else 'FAIL'}] analytical: {query!r}")
     print(f"\nRESULT: {'ALL PASS' if failures == 0 else str(failures) + ' FAILURES'}")
     return 1 if failures else 0
 

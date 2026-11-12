@@ -23,7 +23,9 @@ function addBot(data) {
   const m = el("div", "msg bot");
   m.dir = "auto";
   const tag = el("span", "tag",
-    data.mode === "search" ? "بحث حديث / fresh search" : "معرفة مدرّبة / trained knowledge");
+    data.mode === "search" ? "بحث حديث / fresh search" :
+    data.mode === "analytical" ? "تحليل معرفي مدعوم بالأدلة / evidence-backed analysis" :
+    "معرفة مدرّبة / trained knowledge");
   m.appendChild(tag);
   m.appendChild(el("div", null, data.reply));
 
@@ -59,6 +61,13 @@ function addBot(data) {
     });
     det.appendChild(tbl);
     det.appendChild(el("div", "reason", "المصدر: " + d.source));
+    if (d.evidence && d.evidence.length) {
+      const ev = el("div", "reason", "الأدلة المستخدمة / evidence:");
+      d.evidence.forEach((item) => {
+        ev.appendChild(el("div", "prov", item.concept + " · " + item.verification + " · " + item.source));
+      });
+      det.appendChild(ev);
+    }
     m.appendChild(det);
   }
   chat.appendChild(m);
@@ -110,7 +119,7 @@ clearBtn.addEventListener("click", async () => {
     const info = await (await fetch("/api/info")).json();
     document.getElementById("model-name").textContent = info.model_name;
     document.getElementById("model-meta").textContent =
-      `v${info.version} · ${info.variant} · ${info.units} units · vocab ${info.vocab}`;
+      `v${info.version} · ${info.variant} · ${info.units} units · vocab ${info.vocab} · ${info.analytical_concepts || 0} analytical concepts`;
   } catch (e) { /* header stays default */ }
   input.focus();
 })();
