@@ -16,7 +16,7 @@ See data/hf_sources.json for licenses, intended roles, and quality notes.
 
 The default pipeline uses:
 - Nan-Do/instructional_code-search-net-python (Apache-2.0)
-- Muennighoff/mbpp (CC-BY-4.0), split by task ID and held out for validation/test
+- huggy-1/mbpp (CC-BY-4.0), a Parquet mirror with published train/validation/test/prompt splits
 
 Flytech/python-codes-25k was inspected but excluded from the default pipeline because visible preview rows contained malformed Python quoting/syntax and the card/viewer row counts were inconsistent. It remains documented as an excluded candidate in data/hf_sources.json.
 
@@ -25,7 +25,7 @@ Important:
 - CodeSearchNet-derived instruction pairs include template/NLP-generated text.
 - The Flytech candidate is excluded from the default pipeline after inspecting visible malformed examples.
 - AST parsing proves syntax validity only. The preparation script never executes downloaded code.
-- MBPP test tasks (IDs 11–510) are not mixed into the instruction training set.
+- MBPP uses its published Parquet splits (374 train, 90 validation, 500 test, 10 prompt); the preparation script checks split IDs for overlap. Test rows remain held out, and prompt rows are stored separately.
 - Arabic Python facts are curated bilingual records linked to official Python documentation. General Arabic translation corpora are not treated as proof of Python facts.
 - Raw corpora are not committed to GitHub. They are downloaded on the user's machine into data/processed/.
 
