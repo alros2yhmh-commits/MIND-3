@@ -10,6 +10,7 @@ from . import MODEL_NAME, __version__
 from .knowledge import KnowledgeUnit
 from .model import Mind3Model
 from .registry import SymbolRegistry
+from .python_analyst import PythonAnalyst
 
 ARABIC_RE = re.compile(r"[؀-ۿ]")
 SEARCH_AR = re.compile(r"^\s*(ابحث عن|ابحث لي|ابحث|بحث)\b")
@@ -50,6 +51,9 @@ class Engine:
         )
         self.model.load_weights(os.path.join(artifacts_dir, "model.npz"))
         self.history: list[dict] = []
+        project_root = os.path.dirname(os.path.dirname(os.path.abspath(artifacts_dir)))
+        concepts_path = os.path.join(project_root, "data", "curated", "python_concepts.jsonl")
+        self.python_analyst = PythonAnalyst(concepts_path) if os.path.isfile(concepts_path) else None
 
     def answer(self, message: str) -> dict:
         lang = detect_lang(message)
@@ -62,6 +66,13 @@ class Engine:
             return {"mode": "search", "lang": lang, "reply": result["summary"],
                     "sources": result["sources"], "available": result["available"],
                     "diagnostics": None}
+
+        if self.python_analyst is not None:
+            analytical = self.python_analyst.answer(message)
+            if analytical is not None:
+                self.history.append({"role": "user", "text": message})
+                self.history.append({"role": "assistant", "text": analytical["reply"]})
+                return analytical
 
         res = self.model.infer(message)
         chosen = res["chosen"]
@@ -88,4 +99,5 @@ class Engine:
     def info(self) -> dict:
         return {"model_name": MODEL_NAME, "version": __version__,
                 "variant": self.config["variant"], "units": len(self.units),
-                "vocab": self.registry.size}
+                "vocab": self.registry.size,
+                "analytical_concepts": len(self.python_analyst.concepts) if self.python_analyst else 0}
