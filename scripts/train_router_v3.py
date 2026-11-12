@@ -79,8 +79,8 @@ def main():
     overlap = train_texts & dev_texts
     if overlap:
         raise ValueError(f"Train/dev exact text leakage: {sorted(overlap)[:3]}")
-    if len(train_rows) != 192 or len(dev_rows) != 64:
-        raise ValueError("Unexpected v3 split size; expected train=192 and dev=64")
+    if len(train_rows) != 320 or len(dev_rows) != 80:
+        raise ValueError("Unexpected v3 split size; expected train=320 and dev=80")
 
     router = IntentRouter(seed=17)
     training = router.train([(r["text"], r["intent"]) for r in train_rows],
