@@ -1,0 +1,128 @@
+{"id":"train-explain_concept-en-01","text":"Explain what a Python generator is and when it is useful.","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-en-02","text":"What is the purpose of the `__init__` method in a class?","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-en-03","text":"Describe how a dictionary stores key-value associations in Python.","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-en-04","text":"Can you clarify the difference between a parameter and an argument?","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-en-05","text":"Explain what a Python module provides to a program.","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-en-06","text":"What does the `with` statement do when working with a file?","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-en-07","text":"Describe the role of `None` in Python.","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-en-08","text":"How does inheritance help organize related Python classes?","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-ar-01","text":"اشرح لي فكرة الـ generator في بايثون ومتى نستخدمه.","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-ar-02","text":"ما وظيفة الدالة __init__ داخل الـ class؟","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-ar-03","text":"وضح كيف يعمل القاموس dictionary في تخزين المفاتيح والقيم.","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-ar-04","text":"ما الفرق بين parameter و argument؟","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-ar-05","text":"اشرح لي المقصود بالـ module في بايثون.","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-ar-06","text":"ما فائدة with عند التعامل مع الملفات؟","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-ar-07","text":"ماذا تعني القيمة None في بايثون؟","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-explain_concept-ar-08","text":"كيف يساعد الوراثة في تنظيم الكلاسات؟","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-en-01","text":"Write a function that returns the largest number in a list, or None for an empty list.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-en-02","text":"Create a Python function that counts how many words are in a sentence.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-en-03","text":"Implement a function to remove duplicate items while preserving their order.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-en-04","text":"Write a function that converts Celsius temperatures to Fahrenheit.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-en-05","text":"Define a function that checks whether a string is a palindrome.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-en-06","text":"Create a function that merges two dictionaries, with the second taking precedence.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-en-07","text":"Write a function that returns the factorial of a non-negative integer.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-en-08","text":"Implement a function that groups words by their first letter.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-ar-01","text":"اكتب دالة تستقبل قائمة وتعيد أكبر رقم فيها، وتعيد None إذا كانت فارغة.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-ar-02","text":"أنشئ function تحسب عدد الكلمات في جملة نصية.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-ar-03","text":"اكتب دالة تحذف العناصر المكررة مع الحفاظ على ترتيبها.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-ar-04","text":"عرّف دالة تحول درجة الحرارة من Celsius إلى Fahrenheit.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-ar-05","text":"اكتب دالة تتحقق هل النص palindrome أم لا.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-ar-06","text":"أنشئ دالة تدمج قاموسين ويكون للقاموس الثاني أولوية القيم.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-ar-07","text":"اكتب دالة تحسب factorial لعدد صحيح غير سالب.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-write_function-ar-08","text":"نفّذ دالة تجمع الكلمات في مجموعات حسب أول حرف.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-en-01","text":"Find the bug in this function: it should return the sum, but it returns after the first loop iteration.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-en-02","text":"Why does this code raise a TypeError when adding a string to an integer?","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-en-03","text":"Correct the off-by-one error that causes the final list element to be skipped.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-en-04","text":"Fix this function so it handles an empty input list without crashing.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-en-05","text":"Identify and repair the variable-name mistake causing a NameError.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-en-06","text":"This code modifies the default list argument across calls; fix the problem.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-en-07","text":"Correct the indentation that makes the conditional run outside the loop.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-en-08","text":"Diagnose why this dictionary lookup raises KeyError and make it safe.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-ar-01","text":"اكتشف الخطأ في الدالة التالية؛ المفروض تجمع كل العناصر لكنها تتوقف بعد أول دورة، وأصلحه.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-ar-02","text":"لماذا يظهر TypeError عند جمع نص مع عدد صحيح؟ صحح المشكلة.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-ar-03","text":"أصلح خطأ حدود الحلقة الذي يجعل آخر عنصر لا تتم معالجته.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-ar-04","text":"عدّل الدالة حتى تتعامل مع القائمة الفارغة دون حدوث crash.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-ar-05","text":"حدد خطأ اسم المتغير الذي يسبب NameError وصححه.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-ar-06","text":"أصلح مشكلة استخدام قائمة افتراضية تتغير بين استدعاءات الدالة.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-ar-07","text":"صحح المسافات البادئة التي جعلت الشرط خارج الحلقة.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-debug_code-ar-08","text":"شخّص سبب ظهور KeyError واجعل الوصول إلى القاموس آمنًا.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-en-01","text":"Given this Python snippet, walk through each loop iteration and state the final value of total.","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-en-02","text":"What exactly is printed by this code, and in what order?","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-en-03","text":"Trace the recursive calls and report the value returned for input 4.","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-en-04","text":"Follow the list operations and show the contents of the list after every statement.","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-en-05","text":"Determine how many times the while loop executes for the given initial values.","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-en-06","text":"Evaluate this expression step by step using Python operator precedence.","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-en-07","text":"Track the values of x and y through the conditional branches.","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-en-08","text":"Read this code and state whether the exception handler is executed.","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-ar-01","text":"تتبّع كل دورة في الحلقة التالية وحدد القيمة النهائية للمتغير total.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-ar-02","text":"ما النص الذي سيطبعه هذا الكود بالضبط؟ اذكر الترتيب.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-ar-03","text":"تتبّع استدعاءات الدالة recursive وحدد القيمة المعادة عند إدخال 4.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-ar-04","text":"تابع عمليات القائمة واكتب محتواها بعد كل تعليمة.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-ar-05","text":"احسب عدد مرات تنفيذ while اعتمادًا على القيم الابتدائية المعطاة.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-ar-06","text":"حلّل التعبير خطوة بخطوة حسب أولوية العمليات في Python.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-ar-07","text":"تتبّع قيم x و y خلال فروع if و else.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-trace_code-ar-08","text":"اقرأ الكود وحدد هل سيتم تنفيذ except أم لا، ولماذا.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-en-01","text":"Compare Python lists and tuples in terms of mutability and typical use.","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-en-02","text":"What are the practical differences between `==` and `is`?","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-en-03","text":"Contrast a set with a dictionary, including how each stores data.","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-en-04","text":"Compare a for loop and a while loop and explain when each is appropriate.","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-en-05","text":"How do shallow copies differ from deep copies?","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-en-06","text":"Compare a class method with a static method.","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-en-07","text":"What distinguishes a list comprehension from a generator expression?","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-en-08","text":"Compare handling missing dictionary keys with get() and direct indexing.","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-ar-01","text":"قارن بين list و tuple من حيث قابلية التعديل والاستخدام.","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-ar-02","text":"ما الاختلاف العملي بين == و is؟","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-ar-03","text":"قارن بين set و dictionary من حيث طريقة تخزين البيانات.","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-ar-04","text":"ما الفرق بين for و while ومتى نستخدم كل واحدة؟","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-ar-05","text":"وضح الفرق بين shallow copy و deep copy.","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-ar-06","text":"قارن بين class method و static method.","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-ar-07","text":"ما الفرق بين list comprehension و generator expression؟","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-compare_concepts-ar-08","text":"قارن بين استخدام get() والوصول المباشر لمفتاح في dictionary.","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-en-01","text":"Explain the following Python error message in Arabic, keeping the technical terms in English.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-en-02","text":"Translate this short Python documentation paragraph into clear Arabic.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-en-03","text":"Rewrite this explanation of list slicing in Arabic for a beginner.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-en-04","text":"Give the Arabic meaning of this Python concept explanation without changing its technical meaning.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-en-05","text":"Explain this function's docstring in Arabic.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-en-06","text":"Translate the following code comments into Arabic while preserving identifiers.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-en-07","text":"Present the given English explanation of recursion in simple Arabic.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-en-08","text":"Convert this Python lesson paragraph into Egyptian Arabic while keeping code keywords unchanged.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-ar-01","text":"ترجم الفقرة الإنجليزية التالية عن القواميس إلى العربية مع الحفاظ على المصطلحات التقنية.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-ar-02","text":"اشرح رسالة الخطأ المكتوبة بالإنجليزية بالعربي وبأسلوب بسيط.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-ar-03","text":"حوّل شرح الدالة المكتوب بالإنجليزية إلى شرح عربي واضح.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-ar-04","text":"عايز أفهم النص الإنجليزي ده؛ ترجم معناه للعربية دون تغيير أسماء المتغيرات.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-ar-05","text":"ترجم التعليقات الموجودة في الكود إلى العربية واترك أسماء الدوال كما هي.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-ar-06","text":"اكتب المعنى العربي لشرح الـ recursion التالي مع إبقاء المصطلحات الأساسية.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-ar-07","text":"بسّط هذا الشرح الإنجليزي عن الملفات واكتبه بالعربية.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-translate_explain-ar-08","text":"حوّل التوثيق الإنجليزي للدالة إلى شرح عربي مفهوم للمبتدئ.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-en-01","text":"Calculate the arithmetic result of (18 * 4) - 7.","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-en-02","text":"A list contains 12, 5, 9, and 14; what is its arithmetic mean?","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-en-03","text":"How many elements remain after removing 3 items from a collection of 17?","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-en-04","text":"Given a loop that runs from 0 through 9 inclusive, how many iterations occur?","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-en-05","text":"Compute the percentage increase from 80 to 100.","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-en-06","text":"What is the remainder when 257 is divided by 12?","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-en-07","text":"Evaluate 2 raised to the fifth power, then add 6.","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-en-08","text":"A program processes 240 records in 8 equal batches; how many records are in each batch?","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-ar-01","text":"احسب ناتج العملية (18 × 4) - 7.","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-ar-02","text":"القائمة تحتوي على 12 و5 و9 و14؛ احسب المتوسط الحسابي.","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-ar-03","text":"كم عنصرًا يتبقى بعد حذف 3 عناصر من مجموعة بها 17 عنصرًا؟","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-ar-04","text":"حلقة تبدأ من 0 وتنتهي عند 9 شاملًا؛ كم مرة ستتكرر؟","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-ar-05","text":"احسب نسبة الزيادة من 80 إلى 100.","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-ar-06","text":"ما باقي قسمة 257 على 12؟","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-ar-07","text":"احسب 2 أس 5 ثم أضف 6 إلى الناتج.","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-calculate-ar-08","text":"برنامج يعالج 240 سجلًا على 8 دفعات متساوية؛ كم سجلًا في كل دفعة؟","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-en-01","text":"I am starting to learn Python. What topics should I study first?","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-en-02","text":"Can you help me understand how to set up a clean Python project?","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-en-03","text":"I want to practice Python regularly; suggest a beginner learning path.","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-en-04","text":"What tools are commonly used to write and run Python programs?","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-en-05","text":"I have learned variables and conditions. What should I learn next?","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-en-06","text":"Give me an overview of the main areas where Python is used.","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-en-07","text":"How should I organize my notes while studying Python?","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-en-08","text":"I want to build a small beginner project. Help me choose a suitable idea.","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-ar-01","text":"أنا لسه ببدأ تعلم Python؛ أرتب دراسة الموضوعات إزاي؟","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-ar-02","text":"ساعدني أفهم إزاي أجهز مشروع Python منظم.","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-ar-03","text":"عايز أتدرب على بايثون باستمرار؛ اقترح مسار تعلم للمبتدئ.","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-ar-04","text":"إيه الأدوات الشائعة لكتابة وتشغيل برامج Python؟","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-ar-05","text":"اتعلمت المتغيرات والشروط؛ أدرس إيه بعد كده؟","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-ar-06","text":"اديني نظرة عامة على المجالات اللي بتستخدم Python.","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-ar-07","text":"إزاي أنظم ملاحظاتي وأنا بتعلم بايثون؟","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"train-general_python-ar-08","text":"عايز أعمل مشروع صغير للمبتدئين؛ ساعدني أختار فكرة مناسبة.","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
