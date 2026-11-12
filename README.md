@@ -119,8 +119,8 @@ A valid next experiment should compare the same held-out prompts against the ori
 
 The v3 intent-router experiment uses three newly authored, disjoint bilingual splits:
 
-- `data/curated/intent_train_v3.jsonl`: 192 prompts (24 per intent; 12 Arabic and 12 English).
-- `data/curated/intent_dev_v3.jsonl`: 64 prompts (8 per intent; 4 Arabic and 4 English).
+- `data/curated/intent_train_v3.jsonl`: 320 prompts (40 per intent; 20 Arabic and 20 English).
+- `data/curated/intent_dev_v3.jsonl`: 80 prompts (10 per intent; 5 Arabic and 5 English).
 - `data/curated/intent_test_v3.jsonl`: 64 prompts (8 per intent; 4 Arabic and 4 English).
 
 Each row records its authoring method, reviewer, and review status. The separate 16-row boundary-review set remains a boundary suite and is not merged into these splits. The older v2 files remain unchanged; they are not copied wholesale because several labels do not satisfy the v3 taxonomy.
