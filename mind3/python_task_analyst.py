@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import json
 import re
-from collections import Counter
 from pathlib import Path
 
 from .knowledge import KnowledgeUnit
@@ -42,7 +41,8 @@ def similarity(left: str, right: str) -> float:
 
 
 class PythonTaskAnalyst:
-    def __init__(self, artifacts_dir: str, examples_path: str) -> None:
+    def __init__(self, artifacts_dir: str, examples_path: str,
+                 nodes_path: str | None = None, edges_path: str | None = None) -> None:
         root = Path(artifacts_dir)
         config = json.loads((root / "config.json").read_text(encoding="utf-8"))
         units = [KnowledgeUnit(**item) for item in json.loads(
@@ -66,6 +66,21 @@ class PythonTaskAnalyst:
                     continue
                 row = json.loads(line)
                 self.examples_by_family.setdefault(row["family"], []).append(row)
+
+        self.graph_nodes = {}
+        if nodes_path and Path(nodes_path).is_file():
+            with open(nodes_path, encoding="utf-8") as handle:
+                for line in handle:
+                    if line.strip():
+                        node = json.loads(line)
+                        self.graph_nodes[node["id"]] = node
+        self.graph_edges_by_source: dict[str, list[dict]] = {}
+        if edges_path and Path(edges_path).is_file():
+            with open(edges_path, encoding="utf-8") as handle:
+                for line in handle:
+                    if line.strip():
+                        edge = json.loads(line)
+                        self.graph_edges_by_source.setdefault(edge["source"], []).append(edge)
 
     def answer(self, message: str):
         if not TASK_RE.search(message):
@@ -92,6 +107,15 @@ class PythonTaskAnalyst:
             "I found a related Python reference pattern. It is not a verified solution to your exact task:"
         )
         code = row.get("response", "")
+        related_edges = self.graph_edges_by_source.get(row["id"], [])
+        graph_relations = [
+            {
+                "relation": edge["relation"],
+                "target": self.graph_nodes.get(edge["target"], {}).get("label", edge["target"]),
+                "verification": edge.get("verification", ""),
+            }
+            for edge in related_edges
+        ]
         reply = intro + "\n\n```python\n" + code + "\n```"
         return {
             "mode": "python_knowledge_reference",
@@ -118,6 +142,7 @@ class PythonTaskAnalyst:
                 "verification": row.get("verification", ""),
                 "retrieval_similarity": round(score, 4),
                 "ast_facts": row.get("ast_facts", {}),
+                "knowledge_graph_relations": graph_relations,
                 "reference_prompt": row.get("prompt", ""),
             },
         }
