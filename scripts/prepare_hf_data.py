@@ -8,6 +8,7 @@ The script never executes downloaded code. AST parsing checks syntax only.
 from __future__ import annotations
 
 import ast
+from collections import Counter
 import hashlib
 import json
 import os
@@ -179,9 +180,7 @@ def main():
         "mbpp_validation_rows": len(mbpp_valid),
         "mbpp_test_rows": len(mbpp_test),
         "mbpp_prompt_reference_rows": len(mbpp_prompt),
-        "instruction_sources": dict(sorted(
-            __import__("collections").Counter(r["source"] for r in rows).items()
-        )),
+        "instruction_sources": dict(sorted(Counter(r["source"] for r in rows).items())),
         "notes": [
             "AST parsing checks syntax only; it does not prove semantic correctness.",
             "Downloaded source code was never executed.",
