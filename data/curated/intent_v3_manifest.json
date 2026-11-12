@@ -4,29 +4,29 @@
   "splits": {
     "train": {
       "path": "data/curated/intent_train_v3.jsonl",
-      "rows": 192,
-      "per_intent": 24,
+      "rows": 320,
+      "per_intent": 40,
       "per_language": {
-        "ar": 96,
-        "en": 96
+        "ar": 160,
+        "en": 160
       }
     },
     "dev": {
       "path": "data/curated/intent_dev_v3.jsonl",
-      "rows": 64,
-      "per_intent": 8,
+      "rows": 80,
+      "per_intent": 10,
       "per_language": {
-        "ar": 32,
-        "en": 32
+        "ar": 40,
+        "en": 40
       }
     },
     "test": {
       "path": "data/curated/intent_test_v3.jsonl",
-      "rows": 64,
-      "per_intent": 8,
+      "rows": 80,
+      "per_intent": 10,
       "per_language": {
-        "ar": 32,
-        "en": 32
+        "ar": 40,
+        "en": 40
       }
     }
   },
@@ -40,7 +40,7 @@
     "calculate",
     "general_python"
   ],
-  "total_rows": 320,
+  "total_rows": 480,
   "boundary_review": {
     "path": "data/curated/intent_boundary_review_v3.jsonl",
     "rows": 16,
@@ -72,13 +72,13 @@
   ],
   "file_objects": {
     "data/curated/intent_train_v3.jsonl": {
-      "blob_sha": "c6e927be123caa7245a9a87aeefce260c234e52a"
+      "blob_sha": "9e34d01aff6a1d64fd32164081a2e42cf534082a"
     },
     "data/curated/intent_dev_v3.jsonl": {
-      "blob_sha": "9097fa82221f79b20d4f85c0e27bceee293f2c95"
+      "blob_sha": "f6065a2d051fd566af82de9468556e87ddf5f40e"
     },
     "data/curated/intent_test_v3.jsonl": {
-      "blob_sha": "24df32003c166fe9b9dc775015ce5cf45b0e556c"
+      "blob_sha": "2db8807fa3c0efc695c09a912808fc5719bc5755"
     },
     "data/curated/intent_boundary_review_v3.jsonl": {
       "blob_sha": "75152fc336f8e4a244c02cd6adf5d3c6e0760f53"
