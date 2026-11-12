@@ -60,31 +60,28 @@ def main():
                 if corrupt_tail:
                     nt = int(rng.integers(0, len(entities)))
                     tries = 0
-                    while (h, r, nt) in known and tries < 20:
+                    while (nt == t or (h, r, nt) in known) and tries < 100:
                         nt = int(rng.integers(0, len(entities))); tries += 1
                     nh = h
                 else:
                     nh = int(rng.integers(0, len(entities))); nt = t
                     tries = 0
-                    while (nh, r, t) in known and tries < 20:
+                    while (nh == h or (nh, r, t) in known) and tries < 100:
                         nh = int(rng.integers(0, len(entities))); tries += 1
                 pos = score(E,R,h,r,t); neg = score(E,R,nh,r,nt)
                 loss = max(0.0, 1.0 - pos + neg)
                 total_loss += loss
                 if loss > 0:
                     wins += 1
-                    gp = E[h] * R[r] * E[t]
-                    gn_h = E[nh] * R[r] * E[nt]
-                    grad_h = R[r] * E[t]
-                    grad_t = E[h] * R[r]
-                    grad_r = E[h] * E[t]
-                    grad_nh = R[r] * E[nt]
-                    grad_nt = E[nh] * R[r]
+                    eh, er, et = E[h].copy(), R[r].copy(), E[t].copy()
+                    enh, ent = E[nh].copy(), E[nt].copy()
+                    grad_h, grad_t, grad_r = er * et, eh * er, eh * et
+                    grad_nh, grad_nt = er * ent, enh * er
                     E[h] += args.lr * (grad_h - grad_nh)
                     E[t] += args.lr * grad_t
                     E[nh] -= args.lr * grad_nh
                     E[nt] -= args.lr * grad_nt
-                    R[r] += args.lr * (grad_r - E[nh] * E[nt])
+                    R[r] += args.lr * (grad_r - enh * ent)
         if epoch == 1 or epoch % 50 == 0 or epoch == args.epochs:
             history.append({"epoch":epoch,"mean_pairwise_loss":round(total_loss/(len(train_ids)*args.negatives),6),
                             "active_negative_pairs":wins})
