@@ -16,8 +16,9 @@ See data/hf_sources.json for licenses, intended roles, and quality notes.
 
 The default pipeline uses:
 - Nan-Do/instructional_code-search-net-python (Apache-2.0)
-- flytech/python-codes-25k (MIT)
 - Muennighoff/mbpp (CC-BY-4.0), split by task ID and held out for validation/test
+
+Flytech/python-codes-25k was inspected but excluded from the default pipeline because visible preview rows contained malformed Python quoting/syntax and the card/viewer row counts were inconsistent. It remains documented as an excluded candidate in data/hf_sources.json.
 
 Important:
 - Dataset cards and licenses were inspected, but that does not make every row correct.
