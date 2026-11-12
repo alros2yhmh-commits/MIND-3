@@ -27,7 +27,7 @@
     }
   ],
   "arabic_policy": {
-    "primary": "Bilingual Python concept records in data/curated are checked against official Python documentation.",
+    "primary": "Bilingual Python concept records in data/curated are linked to official Python documentation; the reference link is not a substitute for independent verification of every claim.",
     "external_general_arabic_corpora": "Not mixed into Python factual training by default; general translation data cannot verify Python semantics.",
     "excluded": "Non-commercial or unclear-license Arabic corpora are excluded from the default training pipeline."
   },
