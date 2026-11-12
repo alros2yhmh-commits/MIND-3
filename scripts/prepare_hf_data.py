@@ -146,31 +146,12 @@ def load_mbpp_splits():
     return train, valid, test, prompt, revision
 
 
-def weak_intent(prompt: str) -> str:
-    p = prompt.lower()
-    rules = [
-        ("translate_explain", r"\b(in arabic|translate|arabic)\b|بالعربية|ترجم"),
-        ("debug_code", r"\b(debug|fix|error|bug|correct)\b|صحح|صلح|خطأ"),
-        ("trace_code", r"\b(output|what does this code|trace|result of this code)\b|الناتج|ماذا يفعل"),
-        ("compare_concepts", r"\b(compare|difference|versus|vs\.?)\b|الفرق|قارن"),
-        ("calculate", r"\b(calculate|compute|how many|how much)\b|احسب|كم"),
-        ("write_function", r"\b(write|create|implement|generate|build)\b|اكتب|أنشئ|اعمل"),
-        ("explain_concept", r"\b(explain|what is|describe|how does)\b|اشرح|ما هو|ما معنى"),
-    ]
-    for label, pattern in rules:
-        if re.search(pattern, p, flags=re.I):
-            return label
-    return "general_python"
-
-
 def deduplicate(rows):
     seen, out = set(), []
     for row in rows:
         key = digest(clean(row["prompt"]).lower() + "\n" + clean(row["response"]).lower())
         if key not in seen:
             seen.add(key)
-            row["intent"] = weak_intent(row["prompt"])
-            row["intent_supervision"] = "weak_rule_label"
             out.append(row)
     return out
 
@@ -207,7 +188,7 @@ def main():
             "MBPP test rows are held out and are not used to train the intent router.",
             "The prompt split is preserved separately and is not mixed into training.",
             "Arabic Python concept seeds are stored separately in data/curated/python_concepts.jsonl.",
-            "Intent labels inferred from prompt wording are weak labels, not human annotations."
+            "CodeSearchNet prompts are retained as code-task corpus only; they do not receive intent labels and are excluded from intent-router supervision."
         ]
     }
     OUT.mkdir(parents=True, exist_ok=True)
