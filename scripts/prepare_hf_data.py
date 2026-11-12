@@ -80,7 +80,7 @@ def normalise_pair(prompt: Any, response: Any, source: str, row_id: str):
 def load_instructional_code_search_net(limit: int):
     repo_id = "Nan-Do/instructional_code-search-net-python"
     revision = HfApi().dataset_info(repo_id).sha
-    ds = load_dataset(repo_id, split="train", revision=revision)
+    ds = load_dataset(repo_id, split="train", revision=revision, streaming=True)
     rows = []
     for i, item in enumerate(ds):
         if len(rows) >= limit:
