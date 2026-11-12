@@ -127,9 +127,10 @@ Each row records its authoring method, reviewer, and review status. The separate
 
 The v3 prompts are assistant-authored and taxonomy-reviewed, not independently human-annotated or sourced from an externally verified intent corpus. Treat this as a controlled first v3 experiment, not a claim of broad real-world coverage. The splits are balanced and have no exact normalized-text duplicates; semantic similarity and edge cases still warrant further review.
 
-Train using only train and inspect dev metrics:
+Validate the complete v3 dataset first, then train using only train and inspect dev metrics:
 
 ```powershell
+python -m scripts.validate_intent_v3
 python -m scripts.train_router_v3
 ```
 
