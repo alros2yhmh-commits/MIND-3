@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any
 
 from datasets import load_dataset
+from huggingface_hub import HfApi
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "processed"
@@ -77,7 +78,9 @@ def normalise_pair(prompt: Any, response: Any, source: str, row_id: str):
 
 
 def load_instructional_code_search_net(limit: int):
-    ds = load_dataset("Nan-Do/instructional_code-search-net-python", split="train")
+    repo_id = "Nan-Do/instructional_code-search-net-python"
+    revision = HfApi().dataset_info(repo_id).sha
+    ds = load_dataset(repo_id, split="train", revision=revision)
     rows = []
     for i, item in enumerate(ds):
         if len(rows) >= limit:
@@ -86,26 +89,13 @@ def load_instructional_code_search_net(limit: int):
                              "Nan-Do/instructional_code-search-net-python", str(i))
         if row:
             rows.append(row)
-    return rows
-
-
-def load_flytech(limit: int):
-    ds = load_dataset("flytech/python-codes-25k", split="train")
-    rows = []
-    for i, item in enumerate(ds):
-        if len(rows) >= limit:
-            break
-        prompt = "\n".join(x for x in [clean(item.get("instruction")),
-                                       clean(item.get("input"))] if x)
-        row = normalise_pair(prompt, item.get("output"),
-                             "flytech/python-codes-25k", str(i))
-        if row:
-            rows.append(row)
-    return rows
+    return rows, revision
 
 
 def load_mbpp_splits():
-    ds = load_dataset("Muennighoff/mbpp", split="test")
+    repo_id = "Muennighoff/mbpp"
+    revision = HfApi().dataset_info(repo_id).sha
+    ds = load_dataset(repo_id, split="test", revision=revision)
     train, valid, test = [], [], []
     for item in ds:
         task_id = int(item["task_id"])
@@ -123,7 +113,7 @@ def load_mbpp_splits():
             valid.append(row)
         elif 11 <= task_id <= 510:
             test.append(row)
-    return train, valid, test
+    return train, valid, test, revision
 
 
 def weak_intent(prompt: str) -> str:
@@ -158,9 +148,9 @@ def deduplicate(rows):
 def main():
     print("Loading Hugging Face Python instruction datasets...")
     rows = []
-    rows.extend(load_instructional_code_search_net(MAX_ROWS_PER_SOURCE))
+    rows, codesearchnet_revision = load_instructional_code_search_net(MAX_ROWS_PER_SOURCE)
     rows = deduplicate(rows)
-    mbpp_train, mbpp_valid, mbpp_test = load_mbpp_splits()
+    mbpp_train, mbpp_valid, mbpp_test, mbpp_revision = load_mbpp_splits()
 
     write_jsonl(OUT / "python_train.jsonl", rows)
     write_jsonl(OUT / "mbpp_train_reference.jsonl", mbpp_train)
@@ -169,6 +159,10 @@ def main():
 
     report = {
         "instruction_rows": len(rows),
+        "source_revisions": {
+            "Nan-Do/instructional_code-search-net-python": codesearchnet_revision,
+            "Muennighoff/mbpp": mbpp_revision,
+        },
         "mbpp_train_reference_rows": len(mbpp_train),
         "mbpp_validation_rows": len(mbpp_valid),
         "mbpp_test_rows": len(mbpp_test),
