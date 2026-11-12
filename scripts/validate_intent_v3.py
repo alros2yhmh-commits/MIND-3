@@ -13,9 +13,9 @@ from mind3.intent_router import INTENTS
 ROOT = Path(__file__).resolve().parents[1]
 CURATED = ROOT / "data" / "curated"
 SPLITS = {
-    "train": (CURATED / "intent_train_v3.jsonl", 192, 12),
-    "dev": (CURATED / "intent_dev_v3.jsonl", 64, 4),
-    "test": (CURATED / "intent_test_v3.jsonl", 64, 4),
+    "train": (CURATED / "intent_train_v3.jsonl", 320, 20),
+    "dev": (CURATED / "intent_dev_v3.jsonl", 80, 5),
+    "test": (CURATED / "intent_test_v3.jsonl", 80, 5),
 }
 
 
