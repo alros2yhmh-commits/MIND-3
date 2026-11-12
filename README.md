@@ -71,7 +71,7 @@ The full default cap is 20,000 accepted rows per instructional source. Hugging F
 python -m scripts.train_router
 ```
 
-The router is trained using weak intent labels inferred from prompt wording, plus curated Arabic/English seed examples. Its training accuracy is not a measure of Python knowledge or reasoning ability. Inspect artifacts/analytical/intent_router_report.json.
+The router is trained using weak intent labels inferred from prompt wording, plus curated Arabic/English seed examples. Its softmax score is uncalibrated and is not a probability that an answer is correct. Its training accuracy is not a measure of Python knowledge or reasoning ability. Inspect artifacts/analytical/intent_router_report.json.
 
 ## Tests
 
