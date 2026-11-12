@@ -113,3 +113,31 @@ It cannot yet establish:
 - a universal 100% answer-correctness guarantee.
 
 A valid next experiment should compare the same held-out prompts against the original classifier and analytical path, report per-intent accuracy, unsupported-answer rate, conflict-detection rate, and router calibration.
+
+
+## Intent data v3
+
+The v3 intent-router experiment uses three newly authored, disjoint bilingual splits:
+
+- `data/curated/intent_train_v3.jsonl`: 320 prompts (40 per intent; 20 Arabic and 20 English).
+- `data/curated/intent_dev_v3.jsonl`: 80 prompts (10 per intent; 5 Arabic and 5 English).
+- `data/curated/intent_test_v3.jsonl`: 80 prompts (10 per intent; 5 Arabic and 5 English).
+
+Each row records its authoring method, reviewer, and review status. The separate 16-row boundary-review set remains a boundary suite and is not merged into these splits. The older v2 files remain unchanged; they are not copied wholesale because several labels do not satisfy the v3 taxonomy.
+
+The v3 prompts are assistant-authored and taxonomy-reviewed, not independently human-annotated or sourced from an externally verified intent corpus. Treat this as a controlled first v3 experiment, not a claim of broad real-world coverage. The splits are balanced and have no exact normalized-text duplicates; semantic similarity and edge cases still warrant further review.
+
+Validate the complete v3 dataset first, then train using only train and inspect dev metrics:
+
+```powershell
+python -m scripts.validate_intent_v3
+python -m scripts.train_router_v3
+```
+
+The training script deliberately does not open the final test file. After training and freezing the model/settings, evaluate the final test once:
+
+```powershell
+python -m scripts.evaluate_router_v3
+```
+
+The final test must not be used to tune epochs, learning rate, taxonomy, or data. If test results trigger changes, create a new test set before another final evaluation. The original v2 training script and data remain available for comparison.
