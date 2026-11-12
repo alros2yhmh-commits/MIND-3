@@ -21,9 +21,9 @@ The default pipeline uses:
 Flytech/python-codes-25k was inspected but excluded from the default pipeline because visible preview rows contained malformed Python quoting/syntax and the card/viewer row counts were inconsistent. It remains documented as an excluded candidate in data/hf_sources.json.
 
 Important:
-- Dataset cards and licenses were inspected, but that does not make every row correct.
+- Dataset cards, licenses, and visible sample rows were inspected, but the full corpora were not manually audited row by row.
 - CodeSearchNet-derived instruction pairs include template/NLP-generated text.
-- Flytech is a cleaned dataset, not a formally verified textbook.
+- The Flytech candidate is excluded from the default pipeline after inspecting visible malformed examples.
 - AST parsing proves syntax validity only. The preparation script never executes downloaded code.
 - MBPP test tasks (IDs 11–510) are not mixed into the instruction training set.
 - Arabic Python facts are curated bilingual records linked to official Python documentation. General Arabic translation corpora are not treated as proof of Python facts.
