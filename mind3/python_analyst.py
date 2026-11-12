@@ -88,7 +88,7 @@ class PythonAnalyst:
             claim = c["claim_ar"] if lang == "ar" else c["claim_en"]
             example = c.get("example", "")
             reply = claim + (("\n\nExample:\n" if lang == "en" else "\n\nمثال:\n") + example if example else "")
-            operation = "retrieve_verified_concept"
+            operation = "retrieve_source_linked_concept"
 
         evidence = [
             {"claim_id": c["id"], "concept": c["concept"],
