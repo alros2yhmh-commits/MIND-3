@@ -64,11 +64,18 @@ class PythonAnalyst:
         if not ranked or ranked[0][0] < 0.5:
             return None
 
+        router_result = self.router.predict(message) if self.router is not None else None
+        learned_intent = (
+            router_result["intent"]
+            if router_result and router_result["router_score"] >= 0.60 else None
+        )
         requested_ar = bool(re.search(r"بالعربية|بالعربي|in arabic|in Arabic", query, re.I))
+        requested_ar = requested_ar or learned_intent == "translate_explain"
         query_ar = bool(re.search(r"[\u0600-\u06FF]", query))
         lang = "ar" if requested_ar or query_ar else "en"
 
         compare = bool(re.search(r"\b(compare|difference|versus|vs)\b|الفرق|قارن", query, re.I))
+        compare = compare or learned_intent == "compare_concepts"
         selected = [c for score, c in ranked if score >= 0.5][:3] if compare else [ranked[0][1]]
         if compare and len(selected) < 2:
             return None
@@ -95,7 +102,6 @@ class PythonAnalyst:
              "source": c["source"], "verification": c["verification"]}
             for c in selected
         ]
-        router_result = self.router.predict(message) if self.router is not None else None
         return {
             "mode": "analytical",
             "lang": lang,
