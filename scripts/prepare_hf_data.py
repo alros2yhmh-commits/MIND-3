@@ -159,7 +159,6 @@ def main():
     print("Loading Hugging Face Python instruction datasets...")
     rows = []
     rows.extend(load_instructional_code_search_net(MAX_ROWS_PER_SOURCE))
-    rows.extend(load_flytech(MAX_ROWS_PER_SOURCE))
     rows = deduplicate(rows)
     mbpp_train, mbpp_valid, mbpp_test = load_mbpp_splits()
 
