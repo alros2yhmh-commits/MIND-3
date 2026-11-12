@@ -47,7 +47,7 @@ def main():
     rng = np.random.default_rng(args.seed)
     E = rng.normal(0, 0.08, (len(entities), args.dim))
     R = rng.normal(0, 0.08, (len(relations), args.dim))
-    known = set(train_ids)
+    known = {(ei[x["subject"]], ri[x["relation"]], ei[x["object"]]) for x in rows}
     history = []
     started = time.perf_counter()
     for epoch in range(1, args.epochs + 1):
@@ -82,6 +82,13 @@ def main():
                     E[nh] -= args.lr * grad_nh
                     E[nt] -= args.lr * grad_nt
                     R[r] += args.lr * (grad_r - enh * ent)
+                    for entity_id in {h, t, nh, nt}:
+                        norm = np.linalg.norm(E[entity_id])
+                        if norm > 1.0:
+                            E[entity_id] /= norm
+                    rnorm = np.linalg.norm(R[r])
+                    if rnorm > 1.0:
+                        R[r] /= rnorm
         if epoch == 1 or epoch % 50 == 0 or epoch == args.epochs:
             history.append({"epoch":epoch,"mean_pairwise_loss":round(total_loss/(len(train_ids)*args.negatives),6),
                             "active_negative_pairs":wins})
