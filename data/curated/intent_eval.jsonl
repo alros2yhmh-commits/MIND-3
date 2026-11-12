@@ -1,0 +1,64 @@
+{"id":"eval-explain_concept-en-01","text":"What does iterable mean in Python? Explain it simply.","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-explain_concept-en-02","text":"Describe the purpose of a Python decorator without writing one.","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-explain_concept-en-03","text":"What is the difference between mutable and immutable objects?","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-explain_concept-en-04","text":"Explain why Python uses indentation to define code blocks.","intent":"explain_concept","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-explain_concept-ar-01","text":"اشرح معنى scope للمتغيرات في بايثون.","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-explain_concept-ar-02","text":"ما المقصود بالـ exception؟ وضح الفكرة.","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-explain_concept-ar-03","text":"وضح لي وظيفة كلمة yield في بايثون.","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-explain_concept-ar-04","text":"اشرح الفرق بين القائمة والـ tuple من حيث قابلية التعديل.","intent":"explain_concept","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-write_function-en-01","text":"Build a function that returns the second smallest distinct value in a list.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-write_function-en-02","text":"Write a function to flatten a list containing one level of nested lists.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-write_function-en-03","text":"Create a function that safely parses an integer and returns a default on failure.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-write_function-en-04","text":"Implement a function that splits a list into chunks of a requested size.","intent":"write_function","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-write_function-ar-01","text":"اكتب دالة تعيد أكثر حرف تكرارًا في نص.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-write_function-ar-02","text":"أنشئ function تتحقق من توازن الأقواس في string.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-write_function-ar-03","text":"عرّف دالة تعيد العناصر المشتركة بين قائمتين دون تكرار.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-write_function-ar-04","text":"اكتب دالة تحول عدد الثواني إلى ساعات ودقائق وثوانٍ.","intent":"write_function","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-debug_code-en-01","text":"The function returns the wrong result for negative inputs. Locate the logic error and correct it.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-debug_code-en-02","text":"Fix the AttributeError caused by calling a string method on a None value.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-debug_code-en-03","text":"A loop never terminates because its counter is not updated. Repair it.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-debug_code-en-04","text":"Correct the code that accidentally overwrites the list while iterating over it.","intent":"debug_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-debug_code-ar-01","text":"الدالة تعمل مع الأعداد الموجبة فقط؛ اكتشف الخطأ الذي يمنعها من دعم السالب وأصلحه.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-debug_code-ar-02","text":"أصلح IndexError الناتج عن الوصول إلى فهرس غير موجود.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-debug_code-ar-03","text":"هناك خطأ يجعل الدالة تعيد قيمة قديمة بدل النتيجة الجديدة؛ حدد السبب وصححه.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-debug_code-ar-04","text":"صحح استخدام المتغير المحلي الذي يؤدي إلى UnboundLocalError.","intent":"debug_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-trace_code-en-01","text":"Simulate these slice operations and show the resulting string.","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-trace_code-en-02","text":"Trace the nested loops and give the exact sequence of printed pairs.","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-trace_code-en-03","text":"After these assignments, what does the variable `items` contain?","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-trace_code-en-04","text":"Determine the return value by following the function calls in order.","intent":"trace_code","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-trace_code-ar-01","text":"تتبّع تنفيذ list comprehension وحدد القائمة الناتجة.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-trace_code-ar-02","text":"ما قيمة المتغير بعد تنفيذ التعليمات بالترتيب الموضح؟","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-trace_code-ar-03","text":"احسب ناتج الكود التالي دون تشغيله، واشرح خطوات التنفيذ.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-trace_code-ar-04","text":"حدد أي فرع من match سيتم تنفيذه وما القيمة النهائية.","intent":"trace_code","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-compare_concepts-en-01","text":"Compare `append` and `extend` for adding data to a list.","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-compare_concepts-en-02","text":"How do local variables differ from global variables?","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-compare_concepts-en-03","text":"Contrast `break`, `continue`, and `pass` in loop control.","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-compare_concepts-en-04","text":"Compare reading a file with read() versus iterating over its lines.","intent":"compare_concepts","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-compare_concepts-ar-01","text":"قارن بين الدوال العادية و lambda في بايثون.","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-compare_concepts-ar-02","text":"ما الفرق بين التعامل مع الاستثناءات وترك البرنامج يتوقف؟","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-compare_concepts-ar-03","text":"قارن بين set و frozenset من حيث التعديل.","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-compare_concepts-ar-04","text":"وضح الفرق بين == وعمليات المقارنة مثل < و >.","intent":"compare_concepts","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-translate_explain-en-01","text":"Translate this explanation of Python context managers into Arabic.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-translate_explain-en-02","text":"Explain the supplied English traceback in Arabic without altering code names.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-translate_explain-en-03","text":"Render this paragraph about Python packages in clear Egyptian Arabic.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-translate_explain-en-04","text":"Translate these tutorial notes into Arabic and retain all identifiers.","intent":"translate_explain","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-translate_explain-ar-01","text":"حوّل شرح الـ decorators المكتوب بالإنجليزية إلى العربية الفصحى.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-translate_explain-ar-02","text":"اشرح بالعربية معنى رسالة الخطأ الإنجليزية التالية مع إبقاء اسم الاستثناء.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-translate_explain-ar-03","text":"ترجم وصف هذه المكتبة من الإنجليزية إلى العربية دون حذف التفاصيل التقنية.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-translate_explain-ar-04","text":"اكتب شرحًا عربيًا للنص الإنجليزي التالي عن التعامل مع JSON.","intent":"translate_explain","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-calculate-en-01","text":"Find the median of the values 3, 11, 8, 2, and 6.","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-calculate-en-02","text":"A counter starts at 7 and increases by 3 four times. What is its final value?","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-calculate-en-03","text":"Convert 3.5 hours into minutes.","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-calculate-en-04","text":"How many distinct pairs can be formed from 6 items?","intent":"calculate","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-calculate-ar-01","text":"احسب مجموع الأعداد 14 و27 و39 و20.","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-calculate-ar-02","text":"إذا كان سعر منتج 250 وبعد خصم 12%، فما السعر النهائي؟","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-calculate-ar-03","text":"حلقة تتكرر 6 مرات وتضيف 4 في كل مرة؛ ما إجمالي ما أضافته؟","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-calculate-ar-04","text":"احسب باقي قسمة 1000 على  seven.","intent":"calculate","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-general_python-en-01","text":"What is a sensible way to practice Python when I have only 20 minutes a day?","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-general_python-en-02","text":"I know basic syntax but feel lost choosing a project. Help me plan my next steps.","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-general_python-en-03","text":"Which broad Python topics are useful for automating repetitive desktop tasks?","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-general_python-en-04","text":"How can I structure a study plan to revisit concepts I keep forgetting?","intent":"general_python","language":"en","supervision":"human_authored_curated_v2"}
+{"id":"eval-general_python-ar-01","text":"أنا فاهم أساسيات بايثون ومش عارف أبدأ مشروع؛ اقترح خطوات مناسبة.","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-general_python-ar-02","text":"ما أفضل طريقة أراجع بها مفاهيم Python التي درستها؟","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-general_python-ar-03","text":"عايز أستخدم بايثون في تنظيم الملفات؛ إيه الموضوعات اللي أحتاج أتعلمها؟","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
+{"id":"eval-general_python-ar-04","text":"ساعدني أعمل خطة تعلم عامة لبايثون لمدة شهر.","intent":"general_python","language":"ar","supervision":"human_authored_curated_v2"}
