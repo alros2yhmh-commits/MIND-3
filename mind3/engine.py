@@ -11,6 +11,7 @@ from .knowledge import KnowledgeUnit
 from .model import Mind3Model
 from .registry import SymbolRegistry
 from .python_analyst import PythonAnalyst
+from .python_task_analyst import PythonTaskAnalyst
 
 ARABIC_RE = re.compile(r"[؀-ۿ]")
 SEARCH_AR = re.compile(r"^\s*(ابحث عن|ابحث لي|ابحث|بحث)\b")
@@ -58,6 +59,12 @@ class Engine:
             PythonAnalyst(concepts_path, router_path=router_path)
             if os.path.isfile(concepts_path) else None
         )
+        examples_path = os.path.join(project_root, "data", "processed", "python_train_examples.jsonl")
+        self.python_task_analyst = (
+            PythonTaskAnalyst(artifacts_dir, examples_path)
+            if self.config.get("architecture") == "AKA-PY-1"
+            and os.path.isfile(examples_path) else None
+        )
 
     def answer(self, message: str) -> dict:
         lang = detect_lang(message)
@@ -77,6 +84,13 @@ class Engine:
                 self.history.append({"role": "user", "text": message})
                 self.history.append({"role": "assistant", "text": analytical["reply"]})
                 return analytical
+
+        if self.python_task_analyst is not None:
+            task_result = self.python_task_analyst.answer(message)
+            if task_result is not None:
+                self.history.append({"role": "user", "text": message})
+                self.history.append({"role": "assistant", "text": task_result["reply"]})
+                return task_result
 
         res = self.model.infer(message)
         chosen = res["chosen"]
@@ -104,4 +118,6 @@ class Engine:
         return {"model_name": MODEL_NAME, "version": __version__,
                 "variant": self.config["variant"], "units": len(self.units),
                 "vocab": self.registry.size,
-                "analytical_concepts": len(self.python_analyst.concepts) if self.python_analyst else 0}
+                "analytical_concepts": len(self.python_analyst.concepts) if self.python_analyst else 0,
+                "python_task_families": len(self.python_task_analyst.examples_by_family)
+                if self.python_task_analyst else 0}
