@@ -24,8 +24,13 @@ def tokens(text: str) -> set[str]:
 
 
 class PythonAnalyst:
-    def __init__(self, concepts_path: str) -> None:
+    def __init__(self, concepts_path: str, router_path: str | None = None) -> None:
         self.concepts = []
+        self.router = None
+        if router_path and os.path.isfile(router_path):
+            from .intent_router import IntentRouter
+            self.router = IntentRouter()
+            self.router.load(router_path)
         with open(concepts_path, encoding="utf-8") as f:
             for line in f:
                 if line.strip():
@@ -90,6 +95,7 @@ class PythonAnalyst:
              "source": c["source"], "verification": c["verification"]}
             for c in selected
         ]
+        router_result = self.router.predict(message) if self.router is not None else None
         return {
             "mode": "analytical",
             "lang": lang,
@@ -109,5 +115,6 @@ class PythonAnalyst:
                     {"concept": c["concept"], "score": round(score, 3)}
                     for score, c in ranked[:5]
                 ],
+                "learned_intent_router": router_result,
             },
         }
