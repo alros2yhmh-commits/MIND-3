@@ -1,9 +1,8 @@
 """The experimental MIND-3 model.
 
-One model with ablation flags so every variant shares the same data/head:
-  use_reference_ids : H1 on/off (learned ID embeddings vs fixed hashed features)
-  use_transitions   : H2 on/off (beam+verify+revive vs greedy argmax)
-  use_confidence    : H3 on/off (confidence-weighted loss vs uniform) — in training
+Ablation flags keep the same data/head while disabling one hypothesis at a time.
+Reference-ID mode uses learned symbol embeddings with position-aware pooling:
+the same symbols in a different order no longer collapse to the same mean.
 """
 from __future__ import annotations
 
@@ -44,10 +43,10 @@ class Mind3Model:
         )
 
     def compute_prototypes(self, examples) -> None:
-        """Mean feature vector of each unit's training questions = its stored evidence."""
+        """Build class evidence prototypes using the same encoder used at inference."""
         sums = np.zeros((len(self.units), self.dim))
         counts = np.zeros(len(self.units))
-        for text, idx, _w in examples:
+        for text, idx, _weight in examples:
             sums[idx] += self.features(text)
             counts[idx] += 1
         counts[counts == 0] = 1
@@ -57,7 +56,16 @@ class Mind3Model:
     def features(self, text: str) -> np.ndarray:
         if self.use_reference_ids:
             ids = self.registry.encode(text) or [0]
-            return self.E[ids].mean(axis=0)
+            # Rotate each token embedding by its sequence position before pooling.
+            # This is intentionally lightweight, but unlike plain mean pooling it
+            # preserves some order information (e.g. "abc" != "cba").
+            positioned = [
+                np.roll(self.E[token_id], shift=position % self.dim)
+                for position, token_id in enumerate(ids)
+            ]
+            return np.mean(positioned, axis=0)
+
+        # Ablation baseline: order-insensitive hashed character bag of features.
         v = np.zeros(self.dim)
         for ch in text:
             v[ord(ch) % self.dim] += 1.0
