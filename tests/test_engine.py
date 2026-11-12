@@ -37,6 +37,10 @@ def main() -> int:
             if d["conflict"]:
                 print(f"    conflict={d['conflict']}")
 
+    analytical = eng.answer("What is a Python variable?")
+    analytical_ok = analytical.get("mode") == "analytical" and "assignment statement" in analytical.get("reply", "")
+    failures += 0 if analytical_ok else 1
+    print(f"[{'PASS' if analytical_ok else 'FAIL'}] bounded analytical Python path")
     print(f"\nRESULT: {'ALL PASS' if failures == 0 else str(failures) + ' FAILURES'}")
     return 1 if failures else 0
 
