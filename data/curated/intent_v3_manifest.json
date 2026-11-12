@@ -1,0 +1,87 @@
+{
+  "dataset_version": "intent-data-v3",
+  "taxonomy": "data/curated/intent_taxonomy_v3.md",
+  "splits": {
+    "train": {
+      "path": "data/curated/intent_train_v3.jsonl",
+      "rows": 192,
+      "per_intent": 24,
+      "per_language": {
+        "ar": 96,
+        "en": 96
+      }
+    },
+    "dev": {
+      "path": "data/curated/intent_dev_v3.jsonl",
+      "rows": 64,
+      "per_intent": 8,
+      "per_language": {
+        "ar": 32,
+        "en": 32
+      }
+    },
+    "test": {
+      "path": "data/curated/intent_test_v3.jsonl",
+      "rows": 64,
+      "per_intent": 8,
+      "per_language": {
+        "ar": 32,
+        "en": 32
+      }
+    }
+  },
+  "classes": [
+    "explain_concept",
+    "write_function",
+    "debug_code",
+    "trace_code",
+    "compare_concepts",
+    "translate_explain",
+    "calculate",
+    "general_python"
+  ],
+  "total_rows": 320,
+  "boundary_review": {
+    "path": "data/curated/intent_boundary_review_v3.jsonl",
+    "rows": 16,
+    "merged_into_splits": false,
+    "status": "approved_by_user"
+  },
+  "quality_checks": {
+    "jsonl_parse": "pass",
+    "required_fields": "pass",
+    "exact_duplicate_text_across_splits": "none",
+    "duplicate_ids_across_splits": "none",
+    "balanced_intents": "pass",
+    "arabic_english_coverage_per_intent": "pass",
+    "final_test_opened_by_training_script": false,
+    "semantic_near_duplicate_review": "manual assistant review; no automated guarantee"
+  },
+  "provenance": {
+    "train": "assistant-authored, taxonomy-reviewed; not human-annotated",
+    "dev": "assistant-authored, taxonomy-reviewed; not human-annotated",
+    "test": "assistant-authored, taxonomy-reviewed; held out from training and dev feedback",
+    "external_weak_labels_used": false,
+    "v2_files_modified": false
+  },
+  "limitations": [
+    "The dataset is a controlled initial bilingual intent-classification set, not a broad sample of real user traffic.",
+    "Assistant review is not independent human annotation.",
+    "The final test set must not be used for tuning; create a replacement test set if it is used to guide changes.",
+    "Intent classification metrics do not measure Python factual knowledge, code generation, or reasoning."
+  ],
+  "file_objects": {
+    "data/curated/intent_train_v3.jsonl": {
+      "blob_sha": "c6e927be123caa7245a9a87aeefce260c234e52a"
+    },
+    "data/curated/intent_dev_v3.jsonl": {
+      "blob_sha": "9097fa82221f79b20d4f85c0e27bceee293f2c95"
+    },
+    "data/curated/intent_test_v3.jsonl": {
+      "blob_sha": "24df32003c166fe9b9dc775015ce5cf45b0e556c"
+    },
+    "data/curated/intent_boundary_review_v3.jsonl": {
+      "blob_sha": "75152fc336f8e4a244c02cd6adf5d3c6e0760f53"
+    }
+  }
+}
