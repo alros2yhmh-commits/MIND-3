@@ -93,27 +93,57 @@ def load_instructional_code_search_net(limit: int):
 
 
 def load_mbpp_splits():
-    repo_id = "Muennighoff/mbpp"
+    # This mirror is stored as Parquet, so it works with modern datasets
+    # versions that no longer execute legacy dataset loading scripts.
+    repo_id = "huggy-1/mbpp"
+    config = "full"
     revision = HfApi().dataset_info(repo_id).sha
-    ds = load_dataset(repo_id, split="test", revision=revision)
-    train, valid, test = [], [], []
-    for item in ds:
-        task_id = int(item["task_id"])
-        row = {
-            "id": f"mbpp:{task_id}", "source": "Muennighoff/mbpp",
-            "prompt": str(item.get("text", "")),
-            "response": str(item.get("code", "")),
-            "tests": list(item.get("test_list", [])),
-            "language": "en", "provenance": "crowdsourced_benchmark",
-            "verification": "reference_solution_with_tests_not_independently_proven",
-        }
-        if task_id >= 601:
-            train.append(row)
-        elif 511 <= task_id <= 600:
-            valid.append(row)
-        elif 11 <= task_id <= 510:
-            test.append(row)
-    return train, valid, test, revision
+
+    def read_split(split_name: str):
+        dataset = load_dataset(
+            repo_id, name=config, split=split_name, revision=revision
+        )
+        rows = []
+        seen_ids = set()
+        for item in dataset:
+            task_id = int(item["task_id"])
+            if task_id in seen_ids:
+                raise ValueError(f"Duplicate MBPP task_id {task_id} in {split_name}")
+            seen_ids.add(task_id)
+            prompt = str(item.get("text", "")).strip()
+            code = str(item.get("code", "")).strip()
+            if not prompt or not code:
+                raise ValueError(
+                    f"MBPP task {task_id} in {split_name} has an empty prompt/code"
+                )
+            rows.append({
+                "id": f"mbpp:{task_id}", "source": repo_id,
+                "prompt": prompt, "response": code,
+                "tests": list(item.get("test_list", []) or []),
+                "language": "en", "provenance": "crowdsourced_benchmark",
+                "verification": "reference_solution_with_tests_not_independently_proven",
+            })
+        return rows
+
+    # Use the dataset's published splits; do not infer split membership from IDs.
+    train = read_split("train")
+    valid = read_split("validation")
+    test = read_split("test")
+    prompt = read_split("prompt")
+
+    split_ids = [
+        {row["id"] for row in rows}
+        for rows in (train, valid, test, prompt)
+    ]
+    for i, ids in enumerate(split_ids):
+        for other in split_ids[i + 1:]:
+            overlap = ids & other
+            if overlap:
+                raise ValueError(
+                    "MBPP split leakage detected: " + ", ".join(sorted(overlap)[:5])
+                )
+
+    return train, valid, test, prompt, revision
 
 
 def weak_intent(prompt: str) -> str:
@@ -150,28 +180,32 @@ def main():
     rows = []
     rows, codesearchnet_revision = load_instructional_code_search_net(MAX_ROWS_PER_SOURCE)
     rows = deduplicate(rows)
-    mbpp_train, mbpp_valid, mbpp_test, mbpp_revision = load_mbpp_splits()
+    mbpp_train, mbpp_valid, mbpp_test, mbpp_prompt, mbpp_revision = load_mbpp_splits()
 
     write_jsonl(OUT / "python_train.jsonl", rows)
     write_jsonl(OUT / "mbpp_train_reference.jsonl", mbpp_train)
     write_jsonl(OUT / "mbpp_validation.jsonl", mbpp_valid)
     write_jsonl(OUT / "mbpp_test.jsonl", mbpp_test)
+    write_jsonl(OUT / "mbpp_prompt_reference.jsonl", mbpp_prompt)
 
     report = {
         "instruction_rows": len(rows),
         "source_revisions": {
             "Nan-Do/instructional_code-search-net-python": codesearchnet_revision,
-            "Muennighoff/mbpp": mbpp_revision,
+            "huggy-1/mbpp": mbpp_revision,
         },
         "mbpp_train_reference_rows": len(mbpp_train),
         "mbpp_validation_rows": len(mbpp_valid),
         "mbpp_test_rows": len(mbpp_test),
+        "mbpp_prompt_reference_rows": len(mbpp_prompt),
         "intent_labels": {label: sum(r["intent"] == label for r in rows)
                           for label in sorted({r["intent"] for r in rows})},
         "notes": [
             "AST parsing checks syntax only; it does not prove semantic correctness.",
             "Downloaded source code was never executed.",
-            "MBPP task IDs 11-510 are held out from instruction training.",
+            "MBPP uses its published Parquet train/validation/test/prompt splits; split IDs are checked for overlap.",
+            "MBPP test rows are held out and are not used to train the intent router.",
+            "The prompt split is preserved separately and is not mixed into training.",
             "Arabic Python concept seeds are stored separately in data/curated/python_concepts.jsonl.",
             "Intent labels inferred from prompt wording are weak labels, not human annotations."
         ]
