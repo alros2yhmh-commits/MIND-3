@@ -55,6 +55,7 @@ class IntentRouter:
             "intent": INTENTS[idx],
             "probabilities": {name: float(probs[i]) for i, name in enumerate(INTENTS)},
             "router_score": float(probs[idx]),
+            "score_kind": "uncalibrated_softmax",
             "parameter_count": self.parameter_count,
         }
 
